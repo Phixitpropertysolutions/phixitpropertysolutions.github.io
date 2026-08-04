@@ -78,31 +78,22 @@
       align-items:center;
       justify-content:space-between;
       gap:30px;
-      min-height:112px;
+      min-height:96px;
     }
-    /*
-      logo.png contains a lot of unused space around the artwork.
-      This fixed window crops that space and makes the visible logo
-      large without pushing the rest of the page out of position.
-    */
+    /* Logo */
 
     .brand{
-      display:block;
-      width:390px;
-      height:108px;
-      flex:0 0 390px;
-      overflow:hidden;
+      display:flex;
+      align-items:center;
+      flex:0 0 auto;
       text-decoration:none;
     }
 
     .site-logo{
       display:block;
-      width:100%;
-      height:100%;
+      width:330px;
+      height:auto;
       max-width:none;
-      object-fit:cover;
-      object-position:center 50%;
-      transform:none;
       pointer-events:none;
     }
 
@@ -153,7 +144,7 @@
       min-height:790px;
       display:flex;
       align-items:center;
-      overflow:hidden;
+      
       color:var(--white);
       background:
         radial-gradient(
@@ -199,7 +190,7 @@
       align-items:center;
       gap:50px;
       width:100%;
-      padding:155px 0 70px;
+      padding:145px 0 70px;
     }
 
     .hero-copy{
@@ -536,18 +527,8 @@
        ========================= */
 
     @media(max-width:1050px){
-      .brand{
-        width:320px;
-        height:90px;
-        flex-basis:320px;
-      }
-
       .site-logo{
-        width:100%;
-        height:100%;
-        object-fit:cover;
-        object-position:center 50%;
-        transform:none;
+        width:285px;
       }
 
       .nav-links{
@@ -586,21 +567,11 @@
       }
 
       .nav-inner{
-        min-height:76px;
-      }
-
-      .brand{
-        width:245px;
-        height:68px;
-        flex-basis:245px;
+        min-height:72px;
       }
 
       .site-logo{
-        width:100%;
-        height:100%;
-        object-fit:cover;
-        object-position:center 50%;
-        transform:none;
+        width:220px;
       }
 
       .nav-links a:not(.nav-contact){
@@ -648,18 +619,8 @@
         gap:10px;
       }
 
-      .brand{
-        width:175px;
-        height:50px;
-        flex-basis:175px;
-      }
-
       .site-logo{
-        width:100%;
-        height:100%;
-        object-fit:cover;
-        object-position:center 50%;
-        transform:none;
+        width:165px;
       }
 
       .nav-contact{
