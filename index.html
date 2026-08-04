@@ -72,57 +72,12 @@
       color:white;
       text-decoration:none;
     }
-
-    .brand-icon{
-      position:relative;
-      width:47px;
-      height:40px;
-    }
-
-    .roof{
-      position:absolute;
-      top:4px;
-      left:7px;
-      width:33px;
-      height:33px;
-      border-top:7px solid var(--blue-light);
-      border-left:7px solid var(--blue-light);
-      border-radius:4px;
-      transform:rotate(45deg);
-    }
-
-    .window{
-      position:absolute;
-      bottom:0;
-      width:7px;
-      height:7px;
-      background:white;
-    }
-
-    .window.one{
-      left:14px;
-    }
-
-    .window.two{
-      left:26px;
-    }
-
-    .brand-name{
-      display:block;
-      font-size:28px;
-      font-weight:900;
-      letter-spacing:-1px;
-      line-height:1;
-    }
-
-    .brand-subtitle{
-      display:block;
-      margin-top:5px;
-      color:#d6e5f0;
-      font-size:9px;
-      font-weight:800;
-      letter-spacing:.18em;
-    }
+.site-logo{
+    display:block;
+    width:220px;
+    height:auto;
+}
+  
 
     .nav-links{
       display:flex;
@@ -527,14 +482,9 @@
         width:min(100% - 26px,1180px);
       }
 
-      .brand-name{
-        font-size:21px;
-      }
-
-      .brand-subtitle{
-        font-size:7px;
-      }
-
+.site-logo{
+    width:170px;
+}
       .nav-contact{
         padding:10px 15px;
         font-size:13px;
@@ -568,18 +518,9 @@
   <nav>
     <div class="container nav-inner">
 
-      <a href="/" class="brand">
-        <span class="brand-icon">
-          <span class="roof"></span>
-          <span class="window one"></span>
-          <span class="window two"></span>
-        </span>
-
-        <span>
-          <span class="brand-name">PHIX-IT</span>
-          <span class="brand-subtitle">PROPERTY SOLUTIONS</span>
-        </span>
-      </a>
+<a href="/" class="brand">
+    <img src="logo.png" alt="PHIX-IT Property Solutions" class="site-logo">
+</a>
 
       <div class="nav-links">
         <a href="#solutions">Solutions</a>
