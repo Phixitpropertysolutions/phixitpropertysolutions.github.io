@@ -581,6 +581,84 @@
         padding:24px 18px;
       }
     }
+
+    /* Final header logo sizing */
+
+.brand{
+  width:340px;
+  height:92px;
+  display:flex;
+  align-items:center;
+  overflow:hidden;
+  flex-shrink:0;
+}
+
+.site-logo{
+  width:100%;
+  height:100%;
+  display:block;
+  object-fit:cover;
+  object-position:center;
+}
+
+/* Keep navigation aligned with the larger logo */
+
+nav{
+  padding:24px 0;
+}
+
+.hero-grid{
+  padding-top:155px;
+}
+
+/* Tablet */
+
+@media(max-width:1050px){
+  .brand{
+    width:290px;
+    height:78px;
+  }
+
+  .site-logo{
+    width:100%;
+    height:100%;
+  }
+}
+
+/* Mobile */
+
+@media(max-width:780px){
+  .brand{
+    width:220px;
+    height:60px;
+  }
+
+  .site-logo{
+    width:100%;
+    height:100%;
+  }
+
+  nav{
+    padding:20px 0;
+  }
+
+  .hero-grid{
+    padding-top:125px;
+  }
+}
+
+@media(max-width:560px){
+  .brand{
+    width:180px;
+    height:50px;
+  }
+
+  .site-logo{
+    width:100%;
+    height:100%;
+  }
+}
+    
   </style>
 </head>
 
