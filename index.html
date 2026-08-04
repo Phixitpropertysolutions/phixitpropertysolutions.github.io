@@ -5,94 +5,103 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>PHIX-IT Property Maintenance</title>
+<meta name="description" content="PHIX-IT Property Maintenance">
 
 <style>
+*{
+    box-sizing:border-box;
+}
 
 body{
     margin:0;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
     font-family:Arial,Helvetica,sans-serif;
-    background:#0f172a;
-    color:white;
+    background:#f3f5f7;
+    color:#132238;
 }
 
-header{
-    background:#111827;
-    padding:20px;
+.card{
+    width:100%;
+    max-width:720px;
+    padding:64px 40px;
+    background:#ffffff;
+    border-radius:18px;
+    box-shadow:0 14px 40px rgba(15,23,42,.10);
     text-align:center;
 }
 
-.hero{
-    padding:80px 20px;
-    text-align:center;
+.brand{
+    margin:0;
+    font-size:54px;
+    letter-spacing:-2px;
+    color:#102f4f;
 }
 
-h1{
-    font-size:48px;
-    margin-bottom:10px;
+.line{
+    width:70px;
+    height:4px;
+    margin:22px auto;
+    border-radius:4px;
+    background:#38a9e8;
 }
 
 h2{
-    font-weight:normal;
-    color:#cbd5e1;
+    margin:0 0 16px;
+    font-size:25px;
+    font-weight:600;
 }
 
-.button{
-    display:inline-block;
-    margin-top:40px;
-    background:#2563eb;
-    color:white;
-    text-decoration:none;
-    padding:18px 35px;
-    border-radius:8px;
-    font-size:20px;
+p{
+    max-width:520px;
+    margin:0 auto;
+    color:#5d6b7a;
+    font-size:18px;
+    line-height:1.6;
 }
 
-.button:hover{
-    background:#1d4ed8;
+footer{
+    margin-top:44px;
+    color:#8793a0;
+    font-size:14px;
 }
 
-.footer{
-    margin-top:80px;
-    padding:20px;
-    text-align:center;
-    color:#94a3b8;
-}
+@media(max-width:600px){
+    .card{
+        padding:48px 24px;
+    }
 
+    .brand{
+        font-size:44px;
+    }
+
+    h2{
+        font-size:22px;
+    }
+}
 </style>
-
 </head>
 
 <body>
 
-<header>
+<main class="card">
+    <h1 class="brand">PHIX-IT</h1>
+    <div class="line"></div>
 
-<h1>PHIX-IT</h1>
+    <h2>Property Maintenance & Repairs</h2>
 
-<p>Property Maintenance & Repairs</p>
+    <p>
+        Our new website is currently being prepared.
+        Please check back soon.
+    </p>
 
-</header>
-
-<div class="hero">
-
-<h2>
-Professional maintenance services for letting agents,
-landlords and homeowners.
-</h2>
-
-<a class="button" href="/weletproperty/">
-
-Report a Repair
-
-</a>
-
-</div>
-
-<div class="footer">
-
-© PHIX-IT Property Maintenance
-
-</div>
+    <footer>
+        © PHIX-IT Property Maintenance
+    </footer>
+</main>
 
 </body>
-
 </html>
