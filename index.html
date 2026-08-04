@@ -62,7 +62,7 @@
     }
 
     /* =========================
-       Navigation
+       Top navigation
        ========================= */
 
     nav{
@@ -71,32 +71,43 @@
       left:0;
       z-index:20;
       width:100%;
-      padding:20px 0;
+      padding:24px 0;
     }
-    .nav-inner{
+
+    .topbar{
+      width:min(1400px, calc(100% - 80px));
+      margin:0 auto;
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:30px;
-      min-height:96px;
+      gap:40px;
     }
-    /* Logo */
 
-    .brand{display:none;}
+    .header-logo{
+      display:block;
+      flex:0 0 auto;
+      line-height:0;
+      text-decoration:none;
+    }
 
-.site-logo{display:none;}
+    .site-logo{
+      display:block;
+      width:350px;
+      height:auto;
+    }
 
-.hero-logo{
-display:block;
-width:360px;
-height:auto;
-margin:0 0 28px 0;
-}
+    .header-menu{
+      display:flex;
+      align-items:center;
+      justify-content:flex-end;
+      flex:1 1 auto;
+    }
 
     .nav-links{
       display:flex;
       align-items:center;
-      gap:34px;
+      justify-content:flex-end;
+      gap:36px;
     }
 
     .nav-links a{
@@ -104,6 +115,7 @@ margin:0 0 28px 0;
       text-decoration:none;
       font-size:15px;
       font-weight:700;
+      white-space:nowrap;
       transition:color .2s ease;
     }
 
@@ -116,6 +128,7 @@ margin:0 0 28px 0;
       align-items:center;
       justify-content:center;
       min-height:52px;
+      margin-left:12px;
       padding:0 25px;
       border-radius:9px;
       background:var(--blue);
@@ -130,6 +143,7 @@ margin:0 0 28px 0;
       background:#0877ce;
       transform:translateY(-2px);
     }
+
 
     /* =========================
        Hero
@@ -181,17 +195,18 @@ margin:0 0 28px 0;
     .hero-grid{
       position:relative;
       z-index:2;
+      width:min(1400px, calc(100% - 80px));
+      margin:0 auto;
       display:grid;
-      grid-template-columns:.9fr 1.1fr;
+      grid-template-columns:minmax(0, .88fr) minmax(0, 1.12fr);
       align-items:center;
-      gap:50px;
-      width:100%;
-      padding:145px 0 70px;
+      gap:70px;
+      padding:170px 0 75px;
     }
 
     .hero-copy{
-      max-width:570px;
-      padding-left:70px;
+      width:100%;
+      max-width:590px;
     }
 
     .eyebrow{
@@ -520,10 +535,15 @@ margin:0 0 28px 0;
     }
 
     /* =========================
-       Tablet
+       Responsive
        ========================= */
 
-    @media(max-width:1050px){
+    @media(max-width:1100px){
+      .topbar,
+      .hero-grid{
+        width:min(100% - 48px, 1100px);
+      }
+
       .site-logo{
         width:285px;
       }
@@ -534,6 +554,7 @@ margin:0 0 28px 0;
 
       .hero-grid{
         grid-template-columns:1fr;
+        gap:48px;
         padding-top:155px;
       }
 
@@ -554,17 +575,14 @@ margin:0 0 28px 0;
       }
     }
 
-    /* =========================
-       Small tablet
-       ========================= */
-
     @media(max-width:780px){
       nav{
-        padding:16px 0;
+        padding:18px 0;
       }
 
-      .nav-inner{
-        min-height:72px;
+      .topbar,
+      .hero-grid{
+        width:min(100% - 30px, 760px);
       }
 
       .site-logo{
@@ -577,13 +595,14 @@ margin:0 0 28px 0;
 
       .nav-contact{
         min-height:44px;
+        margin-left:0;
         padding:0 17px;
         font-size:13px;
       }
 
       .hero-grid{
-        gap:45px;
-        padding:135px 0 65px;
+        gap:42px;
+        padding:130px 0 65px;
       }
 
       .feature-grid{
@@ -603,17 +622,18 @@ margin:0 0 28px 0;
       }
     }
 
-    /* =========================
-       Mobile
-       ========================= */
-
     @media(max-width:560px){
       .container{
         width:min(100% - 26px,1180px);
       }
 
-      .nav-inner{
-        gap:10px;
+      .topbar,
+      .hero-grid{
+        width:min(100% - 26px, 540px);
+      }
+
+      .topbar{
+        gap:12px;
       }
 
       .site-logo{
@@ -621,8 +641,8 @@ margin:0 0 28px 0;
       }
 
       .nav-contact{
-        min-height:41px;
-        padding:0 13px;
+        min-height:40px;
+        padding:0 12px;
         font-size:12px;
       }
 
@@ -631,8 +651,8 @@ margin:0 0 28px 0;
       }
 
       .hero-grid{
-        gap:40px;
-        padding:120px 0 55px;
+        gap:38px;
+        padding:110px 0 55px;
       }
 
       h1{
@@ -665,26 +685,34 @@ margin:0 0 28px 0;
         padding:24px 18px;
       }
     }
+
+
   </style>
 </head>
 
 <body>
 
   <nav>
-    <div class="container nav-inner">
+    <div class="topbar">
 
-      <div class="nav-links">
-        <a href="#solutions">Solutions</a>
-        <a href="#solutions">Features</a>
-        <a href="#contact">Benefits</a>
-        <a href="#contact">About Us</a>
-
-        <a
-          href="#contact"
-          class="nav-contact"
-        >
-          Get in touch
+      <div class="header-logo-wrap">
+        <a href="/" class="header-logo">
+          <img
+            src="logo.png"
+            alt="PHIX-IT Property Solutions"
+            class="site-logo"
+          >
         </a>
+      </div>
+
+      <div class="header-menu">
+        <div class="nav-links">
+          <a href="#solutions">Solutions</a>
+          <a href="#solutions">Features</a>
+          <a href="#contact">Benefits</a>
+          <a href="#contact">About Us</a>
+          <a href="#contact" class="nav-contact">Get in touch</a>
+        </div>
       </div>
 
     </div>
@@ -695,8 +723,6 @@ margin:0 0 28px 0;
     <div class="container hero-grid">
 
       <div class="hero-copy">
-
-        <img src="logo.png" alt="PHIX-IT Property Solutions" class="hero-logo">
 
         <div class="eyebrow">
           Property operations platform
