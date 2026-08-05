@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-
   <meta charset="UTF-8">
 
   <meta
@@ -10,7 +9,7 @@
   >
 
   <title>
-    PHIX-IT Property Maintenance | Repairs Made Simple
+    PHIX-IT Property Solutions | Property Maintenance Made Simple
   </title>
 
   <meta
@@ -19,36 +18,25 @@
   >
 
   <style>
-
     :root{
-      --navy:#03172d;
-      --navy-mid:#06294a;
-      --navy-light:#0b4b80;
-
+      --navy:#06182c;
+      --navy-soft:#0b2948;
       --blue:#1688ee;
       --blue-dark:#0877ce;
-      --blue-light:#47a8ff;
-
+      --blue-light:#eaf4ff;
       --red:#dc2626;
       --red-dark:#b91c1c;
-
+      --red-light:#fff1f1;
       --green:#16a34a;
       --amber:#f59e0b;
-
       --white:#ffffff;
-      --text:#13233b;
-      --muted:#62748a;
-      --light:#f5f8fc;
-      --light-blue:#edf6ff;
-      --border:#dfe8f0;
-
-      --shadow:
-        0 22px 60px rgba(3,23,45,.14);
-
-      --soft-shadow:
-        0 12px 32px rgba(3,23,45,.08);
+      --page:#f6f9fc;
+      --text:#14243a;
+      --muted:#63758b;
+      --border:#dde6ef;
+      --shadow:0 20px 55px rgba(6,24,44,.12);
+      --soft-shadow:0 12px 32px rgba(6,24,44,.08);
     }
-
 
     *{
       box-sizing:border-box;
@@ -56,15 +44,15 @@
       padding:0;
     }
 
-
     html{
       scroll-behavior:smooth;
     }
 
-
     body{
       margin:0;
       overflow-x:hidden;
+      color:var(--text);
+      background:var(--white);
       font-family:
         -apple-system,
         BlinkMacSystemFont,
@@ -72,23 +60,17 @@
         Arial,
         Helvetica,
         sans-serif;
-
-      color:var(--text);
-      background:var(--white);
       line-height:1.6;
     }
-
 
     img{
       display:block;
       max-width:100%;
     }
 
-
     a{
       color:inherit;
     }
-
 
     button,
     input,
@@ -97,41 +79,34 @@
       font:inherit;
     }
 
-
     .container{
       width:min(1180px, calc(100% - 40px));
       margin:0 auto;
     }
 
-
     .section-heading{
       max-width:760px;
-      margin:0 auto 52px;
+      margin:0 auto 50px;
       text-align:center;
     }
-
 
     .section-eyebrow{
       display:block;
       margin-bottom:13px;
-
       color:var(--blue);
       font-size:12px;
       font-weight:900;
-      letter-spacing:.14em;
+      letter-spacing:.13em;
       text-transform:uppercase;
     }
 
-
     .section-heading h2{
-      margin:0 0 18px;
-
+      margin-bottom:17px;
       color:var(--navy);
-      font-size:clamp(35px,5vw,53px);
+      font-size:clamp(34px,5vw,52px);
       line-height:1.08;
       letter-spacing:-1.8px;
     }
-
 
     .section-heading p{
       color:var(--muted);
@@ -139,32 +114,27 @@
       line-height:1.7;
     }
 
-
-    /* ========================================
-       NAVIGATION
-       ======================================== */
+    /* =========================
+       Navigation
+       ========================= */
 
     nav{
       position:absolute;
       top:0;
       left:0;
       z-index:100;
-
       width:100%;
-      padding:25px 0;
+      padding:24px 0;
     }
-
 
     .topbar{
       width:min(1400px, calc(100% - 70px));
       margin:0 auto;
-
       display:flex;
       align-items:center;
       justify-content:space-between;
-      gap:32px;
+      gap:30px;
     }
-
 
     .header-logo{
       display:block;
@@ -173,12 +143,11 @@
       text-decoration:none;
     }
 
-
     .site-logo{
-      width:330px;
+      display:block;
+      width:390px;
       height:auto;
     }
-
 
     .header-menu{
       display:flex;
@@ -187,233 +156,183 @@
       flex:1;
     }
 
-
     .nav-links{
       display:flex;
       align-items:center;
       justify-content:flex-end;
-      gap:30px;
+      gap:28px;
     }
 
-
     .nav-links a{
-      color:#e7f0f7;
+      color:var(--navy);
       text-decoration:none;
       font-size:14px;
       font-weight:750;
       white-space:nowrap;
-
       transition:
         color .2s ease,
         transform .2s ease;
     }
 
-
     .nav-links a:hover{
-      color:var(--blue-light);
+      color:var(--blue);
       transform:translateY(-1px);
     }
-
 
     .nav-login{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-
-      min-height:47px;
-      padding:0 21px;
-
-      border:1px solid rgba(255,255,255,.32);
+      min-height:46px;
+      padding:0 20px;
+      border:1px solid #cbd8e5;
       border-radius:9px;
-
-      background:rgba(255,255,255,.06);
-      color:var(--white) !important;
+      background:var(--white);
+      color:var(--navy) !important;
     }
-
 
     .nav-contact{
       display:inline-flex;
       align-items:center;
       justify-content:center;
-
-      min-height:48px;
-      padding:0 23px;
-
+      min-height:47px;
+      padding:0 22px;
       border-radius:9px;
-
       background:var(--blue);
       color:var(--white) !important;
-
-      box-shadow:
-        0 12px 30px rgba(22,136,238,.28);
+      box-shadow:0 12px 28px rgba(22,136,238,.24);
     }
-
 
     .nav-contact:hover{
       background:var(--blue-dark);
     }
 
-
-    /* ========================================
-       HERO
-       ======================================== */
+    /* =========================
+       Hero
+       ========================= */
 
     .hero{
       position:relative;
-
-      min-height:790px;
-
+      min-height:760px;
       display:flex;
       align-items:center;
-
       overflow:hidden;
-      color:var(--white);
-
       background:
         radial-gradient(
-          circle at 80% 18%,
-          rgba(22,136,238,.35),
-          transparent 31%
+          circle at 82% 24%,
+          rgba(22,136,238,.13),
+          transparent 28%
         ),
         linear-gradient(
-          135deg,
-          var(--navy) 0%,
-          var(--navy-mid) 55%,
-          var(--navy-light) 100%
+          180deg,
+          #ffffff 0%,
+          #f7fbff 100%
         );
     }
 
-
-    .hero::after{
+    .hero::before{
       content:"";
-
       position:absolute;
-      inset:0;
-      z-index:0;
-
-      opacity:.13;
-      pointer-events:none;
-
-      background-image:
-        radial-gradient(
-          circle,
-          rgba(71,168,255,.72) 1px,
-          transparent 1px
-        );
-
-      background-size:18px 18px;
-
-      mask-image:
+      top:0;
+      right:0;
+      width:48%;
+      height:100%;
+      background:
         linear-gradient(
-          to right,
-          transparent 12%,
-          black 100%
+          135deg,
+          rgba(22,136,238,.06),
+          rgba(22,136,238,.015)
         );
+      clip-path:polygon(22% 0,100% 0,100% 100%,0 100%);
+      pointer-events:none;
     }
-
 
     .hero-grid{
       position:relative;
       z-index:2;
-
       width:min(1400px, calc(100% - 80px));
       margin:0 auto;
-
       display:grid;
-      grid-template-columns:
-        minmax(0,.92fr)
-        minmax(0,1.08fr);
-
+      grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);
       align-items:center;
-      gap:68px;
-
-      padding:180px 0 85px;
+      gap:60px;
+      padding:175px 0 75px;
     }
-
 
     .hero-copy{
       width:100%;
-      max-width:620px;
+      max-width:625px;
     }
 
-
-    .eyebrow{
-      margin-bottom:19px;
-
-      color:var(--blue-light);
+    .hero-eyebrow{
+      margin-bottom:18px;
+      color:var(--blue);
       font-size:13px;
       font-weight:900;
       letter-spacing:.12em;
       text-transform:uppercase;
     }
 
-
     h1{
-      margin:0 0 27px;
-
-      font-size:clamp(47px,5.5vw,72px);
-      line-height:1.03;
+      margin-bottom:18px;
+      color:var(--navy);
+      font-size:clamp(48px,5.4vw,72px);
+      line-height:1.02;
       letter-spacing:-3px;
     }
 
-
     h1 span{
       display:block;
-      color:var(--blue-light);
+      color:var(--blue);
     }
 
+    .hero-tagline{
+      margin-bottom:16px;
+      color:var(--red);
+      font-size:21px;
+      font-weight:900;
+      line-height:1.3;
+    }
 
     .hero-copy > p{
-      max-width:585px;
+      max-width:590px;
       margin-bottom:27px;
-
-      color:#d6e4ef;
-      font-size:19px;
-      line-height:1.7;
+      color:var(--muted);
+      font-size:18px;
+      line-height:1.72;
     }
-
 
     .hero-points{
       display:grid;
       grid-template-columns:1fr 1fr;
       gap:12px 18px;
-
-      max-width:590px;
+      max-width:620px;
       margin-bottom:34px;
-
       list-style:none;
     }
-
 
     .hero-points li{
       display:flex;
       align-items:center;
       gap:10px;
-
-      color:#eef6fb;
+      color:#27394e;
       font-size:15px;
-      font-weight:650;
+      font-weight:700;
     }
-
 
     .tick{
       width:22px;
       height:22px;
       flex:0 0 22px;
-
       display:inline-flex;
       align-items:center;
       justify-content:center;
-
       border-radius:50%;
-
       background:var(--blue);
       color:var(--white);
-
       font-size:12px;
       font-weight:900;
     }
-
 
     .hero-buttons{
       display:flex;
@@ -421,30 +340,21 @@
       gap:14px;
     }
 
-
     .button{
       display:inline-flex;
       align-items:center;
       justify-content:center;
       gap:9px;
-
       min-height:55px;
       padding:0 27px;
-
       border:0;
       border-radius:10px;
-
       background:var(--blue);
       color:var(--white);
-
       font-weight:850;
       text-decoration:none;
-
       cursor:pointer;
-
-      box-shadow:
-        0 14px 32px rgba(22,136,238,.28);
-
+      box-shadow:0 14px 32px rgba(22,136,238,.25);
       transition:
         transform .2s ease,
         background .2s ease,
@@ -452,496 +362,342 @@
         box-shadow .2s ease;
     }
 
-
     .button:hover{
       transform:translateY(-2px);
       background:var(--blue-dark);
-
-      box-shadow:
-        0 18px 38px rgba(22,136,238,.34);
+      box-shadow:0 18px 38px rgba(22,136,238,.3);
     }
 
-
     .button-secondary{
-      border:1px solid rgba(255,255,255,.48);
-      background:rgba(255,255,255,.05);
+      border:1px solid #bed0df;
+      background:var(--white);
+      color:var(--navy);
       box-shadow:none;
     }
 
-
     .button-secondary:hover{
-      background:rgba(255,255,255,.13);
+      border-color:#93c5fd;
+      background:#f5faff;
+      color:var(--blue-dark);
     }
-
 
     .button-red{
       background:var(--red);
-
-      box-shadow:
-        0 14px 32px rgba(220,38,38,.22);
+      box-shadow:0 14px 32px rgba(220,38,38,.21);
     }
-
 
     .button-red:hover{
       background:var(--red-dark);
     }
 
-
-    .button-light{
-      border:1px solid var(--border);
-      background:var(--white);
-      color:var(--navy);
-      box-shadow:none;
-    }
-
-
-    .button-light:hover{
-      border-color:#93c5fd;
-      background:#f8fbff;
-      color:var(--blue-dark);
-    }
-
-
-    .secure{
-      margin-top:22px;
-
-      color:#cbd9e5;
-      font-size:13px;
-      font-weight:600;
-    }
-
-
     .hero-visual{
       position:relative;
-
       display:flex;
       align-items:center;
       justify-content:flex-end;
-
       min-width:0;
     }
 
-
     .hero-visual::before{
       content:"";
-
       position:absolute;
-      width:440px;
-      height:440px;
-      right:2%;
-      top:50%;
-
+      right:1%;
+      top:52%;
+      width:520px;
+      height:520px;
       border-radius:50%;
-
-      background:
-        rgba(71,168,255,.16);
-
-      filter:blur(4px);
+      background:rgba(22,136,238,.1);
+      filter:blur(2px);
       transform:translateY(-50%);
     }
-
 
     .hero-visual img{
       position:relative;
       z-index:2;
-
-      width:100%;
-      max-width:760px;
+      width:110%;
+      max-width:820px;
       height:auto;
       margin-left:auto;
-
-      filter:
-        drop-shadow(
-          0 35px 45px rgba(0,0,0,.38)
-        );
+      filter:drop-shadow(0 28px 35px rgba(6,24,44,.2));
     }
 
-
-    /* ========================================
-       TRUST STRIP
-       ======================================== */
-
-    .trust-strip{
-      position:relative;
-      z-index:5;
-
-      margin-top:-1px;
-      padding:24px 0;
-
-      border-bottom:1px solid var(--border);
-      background:var(--white);
-    }
-
-
-    .trust-grid{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:18px;
-    }
-
-
-    .trust-item{
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      gap:11px;
-
-      min-height:54px;
-      padding:8px 14px;
-
-      color:var(--navy);
-      text-align:center;
-      font-size:14px;
-      font-weight:800;
-    }
-
-
-    .trust-icon{
-      width:37px;
-      height:37px;
-      flex:0 0 37px;
-
-      display:flex;
-      align-items:center;
-      justify-content:center;
-
-      border-radius:11px;
-
-      background:#eaf4ff;
-      color:var(--blue);
-
-      font-size:19px;
-    }
-
-
-    /* ========================================
-       AUDIENCE CARDS
-       ======================================== */
+    /* =========================
+       Audience cards
+       ========================= */
 
     .audiences{
-      padding:105px 0;
-      background:var(--light);
+      padding:95px 0;
+      background:var(--page);
     }
-
 
     .audience-grid{
       display:grid;
       grid-template-columns:1fr 1fr;
-      gap:27px;
+      gap:28px;
     }
-
 
     .audience-card{
       position:relative;
       overflow:hidden;
-
       min-height:560px;
-      padding:45px;
-
+      padding:42px;
       border:1px solid var(--border);
-      border-radius:25px;
-
+      border-top:5px solid var(--blue);
+      border-radius:24px;
       background:var(--white);
-
       box-shadow:var(--soft-shadow);
-
       transition:
         transform .2s ease,
-        box-shadow .2s ease,
-        border-color .2s ease;
+        box-shadow .2s ease;
     }
 
+    .audience-card.contractors{
+      border-top-color:var(--red);
+    }
 
     .audience-card:hover{
       transform:translateY(-4px);
-      border-color:#b7d9f7;
-
-      box-shadow:
-        0 24px 50px rgba(3,23,45,.12);
+      box-shadow:0 24px 50px rgba(6,24,44,.12);
     }
-
 
     .audience-card::after{
       content:"";
-
       position:absolute;
-      right:-70px;
-      bottom:-70px;
-
-      width:220px;
-      height:220px;
-
+      right:-85px;
+      bottom:-90px;
+      width:240px;
+      height:240px;
       border-radius:50%;
-      background:rgba(22,136,238,.07);
+      background:rgba(22,136,238,.06);
     }
-
 
     .audience-card.contractors::after{
-      background:rgba(220,38,38,.065);
+      background:rgba(220,38,38,.06);
     }
 
-
-    .audience-label{
-      display:inline-flex;
+    .audience-top{
+      display:flex;
       align-items:center;
-      gap:8px;
-
-      margin-bottom:26px;
-      padding:8px 12px;
-
-      border-radius:999px;
-
-      background:#eaf4ff;
-      color:var(--blue-dark);
-
-      font-size:11px;
-      font-weight:900;
-      letter-spacing:.08em;
-      text-transform:uppercase;
+      gap:17px;
+      margin-bottom:24px;
     }
-
-
-    .contractors .audience-label{
-      background:#fef2f2;
-      color:var(--red-dark);
-    }
-
 
     .audience-icon{
-      width:66px;
-      height:66px;
-
+      width:64px;
+      height:64px;
+      flex:0 0 64px;
       display:flex;
       align-items:center;
       justify-content:center;
-
-      margin-bottom:24px;
-
-      border-radius:19px;
-
-      background:
-        linear-gradient(
-          180deg,
-          #1688ee,
-          #0877ce
-        );
-
+      border-radius:18px;
+      background:linear-gradient(180deg,#1688ee,#0877ce);
       color:var(--white);
-      font-size:31px;
-
-      box-shadow:
-        0 13px 28px rgba(22,136,238,.22);
+      font-size:29px;
+      box-shadow:0 12px 25px rgba(22,136,238,.2);
     }
-
 
     .contractors .audience-icon{
-      background:
-        linear-gradient(
-          180deg,
-          #ef4444,
-          #b91c1c
-        );
-
-      box-shadow:
-        0 13px 28px rgba(220,38,38,.18);
+      background:linear-gradient(180deg,#ef4444,#b91c1c);
+      box-shadow:0 12px 25px rgba(220,38,38,.17);
     }
 
+    .audience-small-title{
+      color:var(--blue);
+      font-size:12px;
+      font-weight:900;
+      letter-spacing:.11em;
+      text-transform:uppercase;
+    }
 
-    .audience-card h3{
-      margin:0 0 15px;
+    .contractors .audience-small-title{
+      color:var(--red);
+    }
 
+    .audience-card h2{
+      margin-top:3px;
       color:var(--navy);
-      font-size:35px;
-      line-height:1.12;
+      font-size:34px;
+      line-height:1.1;
       letter-spacing:-1px;
     }
 
-
     .audience-intro{
-      min-height:88px;
+      min-height:86px;
       margin-bottom:25px;
-
       color:var(--muted);
       font-size:16px;
       line-height:1.7;
     }
 
-
     .benefit-list{
       display:grid;
       gap:14px;
-
-      margin:0 0 32px;
-
+      margin-bottom:32px;
       list-style:none;
     }
-
 
     .benefit-list li{
       display:flex;
       align-items:flex-start;
       gap:11px;
-
-      color:#26384f;
+      color:#27394e;
       font-size:15px;
-      font-weight:650;
+      font-weight:680;
     }
-
 
     .benefit-list .tick{
       margin-top:1px;
     }
 
-
     .contractors .benefit-list .tick{
       background:var(--red);
     }
 
+    /* =========================
+       Benefits strip
+       ========================= */
 
-    /* ========================================
-       PLATFORM SECTION
-       ======================================== */
+    .benefits-strip{
+      padding:48px 0;
+      background:var(--navy);
+      color:var(--white);
+    }
+
+    .benefits-grid{
+      display:grid;
+      grid-template-columns:repeat(4,1fr);
+      gap:20px;
+    }
+
+    .benefit-item{
+      display:flex;
+      align-items:flex-start;
+      gap:14px;
+      padding:9px 12px;
+    }
+
+    .benefit-icon{
+      width:48px;
+      height:48px;
+      flex:0 0 48px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:14px;
+      background:var(--blue);
+      font-size:22px;
+    }
+
+    .benefit-item h3{
+      margin-bottom:5px;
+      font-size:16px;
+    }
+
+    .benefit-item p{
+      color:#b8cad9;
+      font-size:13px;
+      line-height:1.55;
+    }
+
+    /* =========================
+       Platform
+       ========================= */
 
     .platform{
       padding:110px 0;
       background:var(--white);
     }
 
-
     .platform-grid{
       display:grid;
       grid-template-columns:1.08fr .92fr;
       align-items:center;
-      gap:75px;
+      gap:72px;
     }
-
 
     .platform-image{
       position:relative;
     }
 
-
     .platform-image::before{
       content:"";
-
       position:absolute;
-      inset:8% 6% -3%;
-
+      inset:8% 5% -4%;
       border-radius:35px;
-
-      background:
-        linear-gradient(
-          135deg,
-          #eaf4ff,
-          #f8fbff
-        );
-
+      background:linear-gradient(135deg,#eaf4ff,#f8fbff);
       transform:rotate(-2deg);
     }
-
 
     .platform-image img{
       position:relative;
       z-index:2;
-
       width:100%;
-
-      filter:
-        drop-shadow(
-          0 25px 35px rgba(3,23,45,.18)
-        );
+      filter:drop-shadow(0 26px 34px rgba(6,24,44,.17));
     }
-
-
-    .platform-copy .section-eyebrow{
-      margin-bottom:14px;
-    }
-
 
     .platform-copy h2{
-      margin:0 0 21px;
-
+      margin:0 0 20px;
       color:var(--navy);
       font-size:clamp(36px,4vw,52px);
       line-height:1.08;
       letter-spacing:-1.7px;
     }
 
-
     .platform-copy > p{
       margin-bottom:27px;
-
       color:var(--muted);
       font-size:17px;
       line-height:1.75;
     }
 
-
     .platform-features{
       display:grid;
       grid-template-columns:1fr 1fr;
-      gap:15px;
-
+      gap:14px;
       margin-bottom:31px;
     }
-
 
     .platform-feature{
       display:flex;
       align-items:center;
       gap:11px;
-
-      min-height:56px;
+      min-height:57px;
       padding:12px 14px;
-
       border:1px solid var(--border);
       border-radius:13px;
-
       background:#fbfdff;
-
       color:#26384f;
       font-size:14px;
       font-weight:750;
     }
 
-
     .platform-feature span{
-      width:31px;
-      height:31px;
-      flex:0 0 31px;
-
+      width:32px;
+      height:32px;
+      flex:0 0 32px;
       display:flex;
       align-items:center;
       justify-content:center;
-
       border-radius:9px;
-
-      background:#eaf4ff;
+      background:var(--blue-light);
       color:var(--blue);
-
-      font-size:15px;
+      font-size:16px;
     }
 
+    /* =========================
+       How it works
+       ========================= */
 
-    /* ========================================
-       HOW IT WORKS
-       ======================================== */
-
-    .how-it-works{
-      padding:110px 0;
+    .how{
+      padding:105px 0;
       background:
         radial-gradient(
           circle at 8% 18%,
-          rgba(22,136,238,.10),
+          rgba(22,136,238,.1),
           transparent 27%
         ),
-        linear-gradient(
-          180deg,
-          #f8fbfe,
-          #edf6fc
-        );
+        linear-gradient(180deg,#f8fbfe,#edf6fc);
     }
-
 
     .steps{
       display:grid;
@@ -949,88 +705,63 @@
       gap:18px;
     }
 
-
     .step{
       position:relative;
-
-      min-height:265px;
-      padding:28px 24px;
-
+      min-height:270px;
+      padding:27px 23px;
       border:1px solid var(--border);
       border-radius:19px;
-
       background:var(--white);
-
-      box-shadow:
-        0 10px 28px rgba(15,42,70,.06);
+      box-shadow:0 10px 28px rgba(15,42,70,.06);
     }
-
 
     .step:not(:last-child)::after{
       content:"→";
-
       position:absolute;
       top:49%;
       right:-17px;
       z-index:3;
-
       width:34px;
       height:34px;
-
       display:flex;
       align-items:center;
       justify-content:center;
-
       border:1px solid #bfdbfe;
       border-radius:50%;
-
       background:var(--white);
       color:var(--blue);
-
       font-size:18px;
       font-weight:900;
-
       transform:translateY(-50%);
     }
 
-
     .step-number{
       margin-bottom:17px;
-
-      color:#a4b4c4;
-      font-size:12px;
+      color:#9aaebe;
+      font-size:11px;
       font-weight:900;
       letter-spacing:.12em;
     }
 
-
     .step-icon{
-      width:56px;
-      height:56px;
-
+      width:55px;
+      height:55px;
       display:flex;
       align-items:center;
       justify-content:center;
-
-      margin-bottom:20px;
-
+      margin-bottom:19px;
       border-radius:16px;
-
-      background:#eaf4ff;
+      background:var(--blue-light);
       color:var(--blue);
-
       font-size:25px;
     }
 
-
     .step h3{
-      margin-bottom:10px;
-
+      margin-bottom:9px;
       color:var(--navy);
       font-size:18px;
       line-height:1.3;
     }
-
 
     .step p{
       color:var(--muted);
@@ -1038,100 +769,14 @@
       line-height:1.6;
     }
 
-
-    /* ========================================
-       WHY PHIX-IT
-       ======================================== */
-
-    .why{
-      padding:100px 0;
-      background:var(--navy);
-      color:var(--white);
-    }
-
-
-    .why .section-heading h2{
-      color:var(--white);
-    }
-
-
-    .why .section-heading p{
-      color:#bfd0df;
-    }
-
-
-    .why-grid{
-      display:grid;
-      grid-template-columns:repeat(4,1fr);
-      gap:20px;
-    }
-
-
-    .why-card{
-      padding:28px 25px;
-
-      border:1px solid rgba(255,255,255,.12);
-      border-radius:18px;
-
-      background:rgba(255,255,255,.055);
-
-      box-shadow:
-        inset 0 1px 0 rgba(255,255,255,.06);
-    }
-
-
-    .why-icon{
-      width:51px;
-      height:51px;
-
-      display:flex;
-      align-items:center;
-      justify-content:center;
-
-      margin-bottom:20px;
-
-      border-radius:15px;
-
-      background:var(--blue);
-      color:var(--white);
-
-      font-size:23px;
-    }
-
-
-    .why-card h3{
-      margin-bottom:9px;
-      font-size:17px;
-    }
-
-
-    .why-card p{
-      color:#bfd0df;
-      font-size:14px;
-      line-height:1.6;
-    }
-
-
-    /* ========================================
-       CONTACT
-       ======================================== */
+    /* =========================
+       Contact
+       ========================= */
 
     .contact{
       padding:110px 0;
-
-      background:
-        radial-gradient(
-          circle at 8% 28%,
-          rgba(22,136,238,.12),
-          transparent 28%
-        ),
-        linear-gradient(
-          180deg,
-          #f8fbfe,
-          #edf6fc
-        );
+      background:var(--white);
     }
-
 
     .contact-grid{
       display:grid;
@@ -1140,35 +785,27 @@
       align-items:center;
     }
 
-
-    .contact-copy > span{
-      color:var(--blue);
-
-      font-size:12px;
-      font-weight:900;
-      letter-spacing:.13em;
-      text-transform:uppercase;
-    }
-
-
     .contact-copy h2{
-      margin:15px 0 20px;
-
+      margin:14px 0 20px;
       color:var(--navy);
-      font-size:clamp(36px,5vw,53px);
+      font-size:clamp(36px,5vw,52px);
       line-height:1.1;
-      letter-spacing:-1.8px;
+      letter-spacing:-1.7px;
     }
-
 
     .contact-copy p{
-      margin-bottom:27px;
-
+      margin-bottom:25px;
       color:var(--muted);
       font-size:17px;
       line-height:1.7;
     }
 
+    .contact-tagline{
+      margin-bottom:24px;
+      color:var(--red);
+      font-size:20px;
+      font-weight:900;
+    }
 
     .contact-benefits{
       display:grid;
@@ -1176,48 +813,37 @@
       list-style:none;
     }
 
-
     .contact-benefits li{
       display:flex;
       align-items:center;
       gap:10px;
-
       color:#26384f;
       font-weight:700;
     }
 
-
     .contact-form{
       padding:35px;
-
       border:1px solid var(--border);
       border-radius:21px;
-
       background:var(--white);
-
       box-shadow:var(--shadow);
     }
-
 
     .form-heading{
       margin-bottom:25px;
     }
 
-
     .form-heading h3{
-      margin-bottom:6px;
-
+      margin-bottom:5px;
       color:var(--navy);
-      font-size:24px;
+      font-size:25px;
       letter-spacing:-.5px;
     }
-
 
     .form-heading p{
       color:var(--muted);
       font-size:14px;
     }
-
 
     .form-grid{
       display:grid;
@@ -1225,100 +851,73 @@
       gap:18px;
     }
 
-
-    .field{
-      margin-bottom:2px;
-    }
-
-
     .field.full{
       grid-column:1 / -1;
     }
 
-
     label{
       display:block;
       margin-bottom:7px;
-
       color:#293b50;
       font-size:13px;
       font-weight:800;
     }
-
 
     input,
     select,
     textarea{
       width:100%;
       padding:14px 15px;
-
       border:1px solid #cfdae5;
       border-radius:9px;
-
       background:#fbfdff;
       color:var(--text);
-
       outline:none;
-
       transition:
         border-color .2s ease,
         box-shadow .2s ease,
         background .2s ease;
     }
 
-
     input:focus,
     select:focus,
     textarea:focus{
       border-color:var(--blue);
       background:var(--white);
-
-      box-shadow:
-        0 0 0 4px rgba(22,136,238,.11);
+      box-shadow:0 0 0 4px rgba(22,136,238,.11);
     }
-
 
     textarea{
       min-height:145px;
       resize:vertical;
     }
 
-
     .submit{
       width:100%;
     }
 
-
     .privacy-note{
       margin-top:13px;
-
       color:#7b8b9b;
       text-align:center;
       font-size:12px;
     }
 
-
-    /* ========================================
-       FINAL CTA
-       ======================================== */
+    /* =========================
+       Final CTA
+       ========================= */
 
     .final-cta{
-      padding:85px 0;
+      padding:82px 0;
       color:var(--white);
-
       background:
         radial-gradient(
           circle at 85% 30%,
-          rgba(71,168,255,.28),
+          rgba(71,168,255,.27),
           transparent 28%
         ),
-        linear-gradient(
-          135deg,
-          var(--navy),
-          var(--navy-light)
-        );
+        linear-gradient(135deg,var(--navy),var(--navy-soft));
     }
-
 
     .final-cta-inner{
       display:flex;
@@ -1327,70 +926,63 @@
       gap:40px;
     }
 
-
     .final-cta-copy{
       max-width:760px;
     }
 
-
     .final-cta h2{
-      margin-bottom:12px;
-
-      font-size:clamp(33px,4vw,49px);
+      margin-bottom:10px;
+      font-size:clamp(33px,4vw,48px);
       line-height:1.08;
       letter-spacing:-1.5px;
     }
 
+    .final-cta-tagline{
+      margin-bottom:8px;
+      color:var(--blue-light);
+      font-size:20px;
+      font-weight:900;
+    }
 
     .final-cta p{
       color:#cbd9e5;
       font-size:17px;
     }
 
-
-    /* ========================================
-       FOOTER
-       ======================================== */
+    /* =========================
+       Footer
+       ========================= */
 
     footer{
-      padding:60px 0 28px;
-
+      padding:56px 0 27px;
       background:#020f1f;
       color:#9fb3c4;
     }
 
-
     .footer-grid{
       display:grid;
       grid-template-columns:1.35fr 1fr 1fr 1fr;
-      gap:45px;
-
-      margin-bottom:45px;
+      gap:44px;
+      margin-bottom:42px;
     }
-
 
     .footer-logo{
-      width:240px;
-      margin-bottom:18px;
+      width:270px;
+      margin-bottom:17px;
     }
 
-
     .footer-about p{
-      max-width:380px;
-
+      max-width:390px;
       color:#9fb3c4;
       font-size:14px;
       line-height:1.7;
     }
 
-
     .footer-column h3{
-      margin-bottom:17px;
-
+      margin-bottom:16px;
       color:var(--white);
       font-size:15px;
     }
-
 
     .footer-links{
       display:grid;
@@ -1398,60 +990,52 @@
       list-style:none;
     }
 
-
     .footer-links a{
       color:#9fb3c4;
       text-decoration:none;
       font-size:14px;
     }
 
-
     .footer-links a:hover{
-      color:var(--blue-light);
+      color:#47a8ff;
     }
-
 
     .footer-bottom{
       display:flex;
       justify-content:space-between;
       gap:25px;
-
-      padding-top:25px;
-
+      padding-top:24px;
       border-top:1px solid rgba(255,255,255,.1);
-
       color:#8195a8;
       font-size:13px;
     }
 
-
-    /* ========================================
-       RESPONSIVE
-       ======================================== */
+    /* =========================
+       Responsive
+       ========================= */
 
     @media(max-width:1150px){
-
       .topbar,
       .hero-grid{
         width:min(100% - 48px,1100px);
       }
 
       .site-logo{
-        width:270px;
+        width:310px;
       }
 
       .nav-links{
-        gap:20px;
+        gap:19px;
       }
 
       .hero-grid{
         grid-template-columns:1fr;
-        gap:50px;
-        padding-top:155px;
+        gap:42px;
+        padding-top:150px;
       }
 
       .hero-copy{
-        max-width:800px;
+        max-width:790px;
       }
 
       .hero-visual{
@@ -1459,6 +1043,7 @@
       }
 
       .hero-visual img{
+        width:100%;
         margin:0 auto;
       }
 
@@ -1469,16 +1054,9 @@
       .step:nth-child(3)::after{
         display:none;
       }
-
-      .why-grid{
-        grid-template-columns:1fr 1fr;
-      }
-
     }
 
-
     @media(max-width:900px){
-
       .nav-links a:not(.nav-contact):not(.nav-login){
         display:none;
       }
@@ -1493,7 +1071,7 @@
         order:2;
       }
 
-      .trust-grid{
+      .benefits-grid{
         grid-template-columns:1fr 1fr;
       }
 
@@ -1513,18 +1091,15 @@
         align-items:flex-start;
         flex-direction:column;
       }
-
     }
 
-
     @media(max-width:650px){
-
       .container{
         width:min(100% - 26px,1180px);
       }
 
       nav{
-        padding:16px 0;
+        padding:15px 0;
       }
 
       .topbar,
@@ -1537,7 +1112,7 @@
       }
 
       .site-logo{
-        width:170px;
+        width:190px;
       }
 
       .nav-login{
@@ -1555,13 +1130,12 @@
       }
 
       .hero-grid{
-        gap:38px;
-        padding:115px 0 60px;
+        gap:36px;
+        padding:110px 0 55px;
       }
 
       h1{
         font-size:clamp(42px,14vw,58px);
-        line-height:1.04;
         letter-spacing:-2px;
       }
 
@@ -1581,38 +1155,31 @@
         width:100%;
       }
 
-      .trust-grid,
-      .audience-grid,
-      .steps,
-      .why-grid,
-      .platform-features,
-      .footer-grid{
-        grid-template-columns:1fr;
-      }
-
-      .trust-item{
-        justify-content:flex-start;
-      }
-
       .audiences,
       .platform,
-      .how-it-works,
-      .why,
+      .how,
       .contact{
-        padding:78px 0;
+        padding:76px 0;
       }
 
       .audience-card{
         min-height:auto;
-        padding:31px 25px;
+        padding:29px 24px;
       }
 
-      .audience-card h3{
-        font-size:31px;
+      .audience-card h2{
+        font-size:30px;
       }
 
       .audience-intro{
         min-height:0;
+      }
+
+      .benefits-grid,
+      .steps,
+      .platform-features,
+      .footer-grid{
+        grid-template-columns:1fr;
       }
 
       .form-grid{
@@ -1624,28 +1191,21 @@
       }
 
       .contact-form{
-        padding:25px 18px;
+        padding:24px 18px;
       }
 
       .footer-bottom{
         flex-direction:column;
       }
-
     }
-
   </style>
-
 </head>
 
 <body>
 
-
-  <!-- ======================================
-       NAVIGATION
-       ====================================== -->
+  <!-- Navigation -->
 
   <nav>
-
     <div class="topbar">
 
       <a
@@ -1655,31 +1215,27 @@
       >
         <img
           src="logo.png"
-          alt="PHIX-IT Property Maintenance"
+          alt="PHIX-IT Property Solutions"
           class="site-logo"
         >
       </a>
 
-
       <div class="header-menu">
-
         <div class="nav-links">
 
-          <a href="#platform">
-            Platform
-          </a>
+          <a href="#home">Home</a>
+
+          <a href="#platform">Platform</a>
 
           <a href="#letting-agents">
-            For Letting Agents
+            Letting Agents
           </a>
 
           <a href="#contractors">
-            For Contractors
+            Contractors
           </a>
 
-          <a href="#how-it-works">
-            How It Works
-          </a>
+          <a href="#contact">Contact</a>
 
           <a
             href="/weletproperty"
@@ -1691,31 +1247,30 @@
           <a
             href="#contact"
             class="nav-contact"
+            onclick="selectEnquiry('Book a free demonstration')"
           >
-            Get in touch
+            Request a Demo
           </a>
 
         </div>
-
       </div>
 
     </div>
-
   </nav>
 
 
-  <!-- ======================================
-       HERO
-       ====================================== -->
+  <!-- Hero -->
 
-  <header class="hero">
-
+  <header
+    class="hero"
+    id="home"
+  >
     <div class="hero-grid">
 
       <div class="hero-copy">
 
-        <div class="eyebrow">
-          Property maintenance across Scotland
+        <div class="hero-eyebrow">
+          PHIX-IT Property Solutions
         </div>
 
         <h1>
@@ -1723,38 +1278,40 @@
           <span>Made Simple.</span>
         </h1>
 
+        <div class="hero-tagline">
+          You report it. We repair it.
+        </div>
+
         <p>
           One trusted platform connecting letting agents with reliable
-          local tradespeople. From the first repair report to final
-          invoice approval, PHIX-IT keeps everything organised,
-          visible and moving.
+          local tradespeople. From tenant repair reporting and contractor
+          allocation to quote approvals and invoicing, PHIX-IT keeps
+          every repair organised from start to finish.
         </p>
-
 
         <ul class="hero-points">
 
           <li>
             <span class="tick">✓</span>
-            Tenant repair reporting
+            Tenant Repair Reporting
           </li>
 
           <li>
             <span class="tick">✓</span>
-            Live repair tracking
+            Live Job Tracking
           </li>
 
           <li>
             <span class="tick">✓</span>
-            Quote and invoice management
+            Quote &amp; Invoice Management
           </li>
 
           <li>
             <span class="tick">✓</span>
-            Reliable contractor network
+            Qualified Contractor Network
           </li>
 
         </ul>
-
 
         <div class="hero-buttons">
 
@@ -1763,7 +1320,7 @@
             class="button"
             onclick="selectEnquiry('Book a free demonstration')"
           >
-            Book a Free Demo
+            Book a Free Demonstration
             <span>→</span>
           </a>
 
@@ -1777,119 +1334,56 @@
 
         </div>
 
-
-        <div class="secure">
-          🔒 Secure, reliable and built for property professionals.
-        </div>
-
       </div>
-
 
       <div class="hero-visual">
-
         <img
-          src="ChatGPT Image Aug 4, 2026, 11_48_38 AM.png"
-          alt="PHIX-IT repair management platform displayed on a laptop and mobile phone"
+          src="hero-van.png"
+          alt="PHIX-IT vehicle outside a residential property"
         >
-
       </div>
 
     </div>
-
   </header>
-
-
-  <!-- ======================================
-       TRUST STRIP
-       ====================================== -->
-
-  <section class="trust-strip">
-
-    <div class="container trust-grid">
-
-      <div class="trust-item">
-        <span class="trust-icon">✓</span>
-        Qualified Contractors
-      </div>
-
-      <div class="trust-item">
-        <span class="trust-icon">⚡</span>
-        Fast Response
-      </div>
-
-      <div class="trust-item">
-        <span class="trust-icon">🤝</span>
-        One Point of Contact
-      </div>
-
-      <div class="trust-item">
-        <span class="trust-icon">🔒</span>
-        Secure Online Platform
-      </div>
-
-    </div>
-
-  </section>
 
 
   <main>
 
-
-    <!-- ======================================
-         LETTING AGENTS / CONTRACTORS
-         ====================================== -->
+    <!-- Letting agent and contractor cards -->
 
     <section class="audiences">
-
       <div class="container">
 
-        <div class="section-heading">
-
-          <span class="section-eyebrow">
-            Built for both sides of every repair
-          </span>
-
-          <h2>
-            One platform. Two simple ways to get started.
-          </h2>
-
-          <p>
-            Whether you manage properties or carry out repairs,
-            PHIX-IT gives you the tools and support needed to make
-            property maintenance easier.
-          </p>
-
-        </div>
-
-
         <div class="audience-grid">
-
-
-          <!-- LETTING AGENTS -->
 
           <article
             class="audience-card"
             id="letting-agents"
           >
 
-            <div class="audience-label">
-              For Letting Agents
-            </div>
+            <div class="audience-top">
 
-            <div class="audience-icon">
-              🏢
-            </div>
+              <div class="audience-icon">
+                🏢
+              </div>
 
-            <h3>
-              Everything your agency needs to manage repairs.
-            </h3>
+              <div>
+                <div class="audience-small-title">
+                  Letting Agent?
+                </div>
+
+                <h2>
+                  We've got you covered.
+                </h2>
+              </div>
+
+            </div>
 
             <p class="audience-intro">
-              Give your team complete visibility over every repair,
-              reduce administration and keep landlords, tenants and
-              contractors informed.
+              Our all-in-one repair management platform saves your
+              team valuable time, keeps tenants informed and gives you
+              complete visibility over every repair from start to finish.
             </p>
-
 
             <ul class="benefit-list">
 
@@ -1920,11 +1414,15 @@
 
               <li>
                 <span class="tick">✓</span>
-                One dedicated point of contact
+                Dedicated account manager
+              </li>
+
+              <li>
+                <span class="tick">✓</span>
+                One point of contact
               </li>
 
             </ul>
-
 
             <a
               href="#contact"
@@ -1938,37 +1436,45 @@
           </article>
 
 
-          <!-- CONTRACTORS -->
-
           <article
             class="audience-card contractors"
             id="contractors"
           >
 
-            <div class="audience-label">
-              For Tradespeople
-            </div>
+            <div class="audience-top">
 
-            <div class="audience-icon">
-              🔧
-            </div>
+              <div class="audience-icon">
+                🔧
+              </div>
 
-            <h3>
-              Reliable tradespeople wanted.
-            </h3>
+              <div>
+                <div class="audience-small-title">
+                  Tradesperson?
+                </div>
+
+                <h2>
+                  Looking for regular work?
+                </h2>
+              </div>
+
+            </div>
 
             <p class="audience-intro">
-              We are looking for reliable, qualified tradespeople to
-              join the PHIX-IT contractor network and carry out
-              property repairs across Scotland.
+              Join our trusted network of reliable, qualified
+              tradespeople and receive regular property maintenance
+              work from letting agents across Scotland.
             </p>
-
 
             <ul class="benefit-list">
 
               <li>
                 <span class="tick">✓</span>
-                Regular property maintenance work
+                Regular work in your preferred areas
+              </li>
+
+              <li>
+                <span class="tick">✓</span>
+                Same-day payment available
               </li>
 
               <li>
@@ -1978,12 +1484,12 @@
 
               <li>
                 <span class="tick">✓</span>
-                Work in your preferred areas
+                Clear job instructions
               </li>
 
               <li>
                 <span class="tick">✓</span>
-                Clear job instructions and contact details
+                Work around your schedule
               </li>
 
               <li>
@@ -1993,18 +1499,17 @@
 
               <li>
                 <span class="tick">✓</span>
-                Friendly, professional support
+                Friendly support when you need it
               </li>
 
             </ul>
-
 
             <a
               href="#contact"
               class="button button-red"
               onclick="selectEnquiry('Contractor application')"
             >
-              Become an Approved Contractor
+              Apply to Become a Contractor
               <span>→</span>
             </a>
 
@@ -2013,70 +1518,138 @@
         </div>
 
       </div>
-
     </section>
 
 
-    <!-- ======================================
-         PLATFORM
-         ====================================== -->
+    <!-- Dark benefits strip -->
+
+    <section class="benefits-strip">
+      <div class="container benefits-grid">
+
+        <div class="benefit-item">
+
+          <div class="benefit-icon">
+            🛡
+          </div>
+
+          <div>
+            <h3>
+              Qualified Contractors
+            </h3>
+
+            <p>
+              Contractors are vetted before joining the PHIX-IT network.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="benefit-item">
+
+          <div class="benefit-icon">
+            ⚡
+          </div>
+
+          <div>
+            <h3>
+              Fast Response
+            </h3>
+
+            <p>
+              Efficient repair management from report to completion.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="benefit-item">
+
+          <div class="benefit-icon">
+            🤝
+          </div>
+
+          <div>
+            <h3>
+              Trusted Support
+            </h3>
+
+            <p>
+              Supporting property professionals across Scotland.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="benefit-item">
+
+          <div class="benefit-icon">
+            ⭐
+          </div>
+
+          <div>
+            <h3>
+              Quality Workmanship
+            </h3>
+
+            <p>
+              Repairs completed to a consistently high standard.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+
+    <!-- Platform -->
 
     <section
       class="platform"
       id="platform"
     >
-
       <div class="container platform-grid">
 
-
         <div class="platform-image">
-
           <img
-            src="ChatGPT Image Aug 4, 2026, 11_48_38 AM.png"
-            alt="The PHIX-IT maintenance platform"
+            src="platform-dashboard.png"
+            alt="PHIX-IT maintenance platform displayed on a laptop and mobile phone"
           >
-
         </div>
-
 
         <div class="platform-copy">
 
           <span class="section-eyebrow">
-            The PHIX-IT Maintenance Platform
+            The PHIX-IT Platform
           </span>
 
           <h2>
-            Complete control over every repair.
+            One platform. Complete control.
           </h2>
 
           <p>
-            PHIX-IT combines experienced property maintenance with
-            a secure online platform designed specifically for
-            letting agents. Every repair, message, quote, invoice
-            and document is kept together in one clear place.
+            Designed specifically for property professionals, the
+            PHIX-IT platform keeps every repair organised in one secure
+            place. Track repairs, approve quotes, manage invoices,
+            communicate clearly and access supporting documents whenever
+            you need them.
           </p>
-
 
           <div class="platform-features">
 
             <div class="platform-feature">
-              <span>📊</span>
-              Live dashboard
+              <span>📱</span>
+              Tenant repair reporting
             </div>
 
             <div class="platform-feature">
-              <span>🔧</span>
-              Repair tracking
-            </div>
-
-            <div class="platform-feature">
-              <span>💬</span>
-              Activity updates
+              <span>📍</span>
+              Live repair tracking
             </div>
 
             <div class="platform-feature">
               <span>📋</span>
-              Quote approval
+              Digital quote approval
             </div>
 
             <div class="platform-feature">
@@ -2085,12 +1658,26 @@
             </div>
 
             <div class="platform-feature">
+              <span>📷</span>
+              Photos and videos
+            </div>
+
+            <div class="platform-feature">
               <span>📁</span>
               Secure documents
             </div>
 
-          </div>
+            <div class="platform-feature">
+              <span>💬</span>
+              Activity history
+            </div>
 
+            <div class="platform-feature">
+              <span>📊</span>
+              Live dashboard
+            </div>
+
+          </div>
 
           <a
             href="#contact"
@@ -2104,19 +1691,15 @@
         </div>
 
       </div>
-
     </section>
 
 
-    <!-- ======================================
-         HOW IT WORKS
-         ====================================== -->
+    <!-- How it works -->
 
     <section
-      class="how-it-works"
+      class="how"
       id="how-it-works"
     >
-
       <div class="container">
 
         <div class="section-heading">
@@ -2130,15 +1713,13 @@
           </h2>
 
           <p>
-            PHIX-IT keeps the full repair journey organised from the
-            moment a problem is reported until the work is complete.
+            You report it. We manage the repair journey from the first
+            request through to completion and invoicing.
           </p>
 
         </div>
 
-
         <div class="steps">
-
 
           <article class="step">
 
@@ -2151,16 +1732,15 @@
             </div>
 
             <h3>
-              Repair reported
+              You report it
             </h3>
 
             <p>
-              A repair is submitted by the tenant or letting agent
-              with the details needed to begin.
+              The tenant or letting agent submits the repair through
+              the online reporting system.
             </p>
 
           </article>
-
 
           <article class="step">
 
@@ -2173,16 +1753,15 @@
             </div>
 
             <h3>
-              Agent reviews
+              Agent reviews it
             </h3>
 
             <p>
               The letting agent reviews the request and approves or
-              declines it through the portal.
+              declines it online.
             </p>
 
           </article>
-
 
           <article class="step">
 
@@ -2195,16 +1774,15 @@
             </div>
 
             <h3>
-              Contractor allocated
+              We allocate it
             </h3>
 
             <p>
-              PHIX-IT allocates the right tradesperson based on the
-              repair type and service area.
+              PHIX-IT assigns the right tradesperson based on trade,
+              location and availability.
             </p>
 
           </article>
-
 
           <article class="step">
 
@@ -2217,16 +1795,15 @@
             </div>
 
             <h3>
-              Repair completed
+              We repair it
             </h3>
 
             <p>
-              Progress, messages, photos and documents remain visible
-              throughout the repair.
+              The contractor completes the repair while progress and
+              supporting information remain visible.
             </p>
 
           </article>
-
 
           <article class="step">
 
@@ -2239,148 +1816,33 @@
             </div>
 
             <h3>
-              Invoice managed
+              Job complete
             </h3>
 
             <p>
-              The final invoice and supporting information are
-              delivered securely through the platform.
+              The invoice and final documents are delivered securely
+              through the PHIX-IT platform.
             </p>
 
           </article>
-
 
         </div>
 
       </div>
-
     </section>
 
 
-    <!-- ======================================
-         WHY PHIX-IT
-         ====================================== -->
-
-    <section class="why">
-
-      <div class="container">
-
-        <div class="section-heading">
-
-          <span class="section-eyebrow">
-            Why choose PHIX-IT?
-          </span>
-
-          <h2>
-            More than a maintenance company.
-          </h2>
-
-          <p>
-            We bring together practical maintenance experience,
-            reliable tradespeople and modern repair-management
-            technology.
-          </p>
-
-        </div>
-
-
-        <div class="why-grid">
-
-
-          <article class="why-card">
-
-            <div class="why-icon">
-              👷
-            </div>
-
-            <h3>
-              Reliable Contractors
-            </h3>
-
-            <p>
-              Repairs are allocated to suitable tradespeople with
-              the right skills and local coverage.
-            </p>
-
-          </article>
-
-
-          <article class="why-card">
-
-            <div class="why-icon">
-              ⚡
-            </div>
-
-            <h3>
-              Faster Communication
-            </h3>
-
-            <p>
-              Clear updates help reduce delays, repeated calls and
-              unnecessary administration.
-            </p>
-
-          </article>
-
-
-          <article class="why-card">
-
-            <div class="why-icon">
-              👁
-            </div>
-
-            <h3>
-              Complete Visibility
-            </h3>
-
-            <p>
-              Agents can view repair progress, quotes, invoices and
-              documentation whenever they need it.
-            </p>
-
-          </article>
-
-
-          <article class="why-card">
-
-            <div class="why-icon">
-              🤝
-            </div>
-
-            <h3>
-              One Point of Contact
-            </h3>
-
-            <p>
-              PHIX-IT coordinates the repair journey, so your team
-              does not need to chase multiple contractors.
-            </p>
-
-          </article>
-
-
-        </div>
-
-      </div>
-
-    </section>
-
-
-    <!-- ======================================
-         CONTACT
-         ====================================== -->
+    <!-- Contact -->
 
     <section
       class="contact"
       id="contact"
     >
-
       <div class="container contact-grid">
-
 
         <div class="contact-copy">
 
-          <span>
+          <span class="section-eyebrow">
             Get started
           </span>
 
@@ -2388,12 +1850,15 @@
             Ready to simplify property maintenance?
           </h2>
 
-          <p>
-            Tell us whether you are looking for a better way to
-            manage repairs or would like to join our contractor
-            network. We will be in touch to discuss the next step.
-          </p>
+          <div class="contact-tagline">
+            You report it. We repair it.
+          </div>
 
+          <p>
+            Tell us whether you are looking for a better way to manage
+            repairs or would like to join our contractor network.
+            We will be in touch to discuss the next step.
+          </p>
 
           <ul class="contact-benefits">
 
@@ -2423,7 +1888,6 @@
           method="POST"
         >
 
-
           <div class="form-heading">
 
             <h3>
@@ -2435,7 +1899,6 @@
             </p>
 
           </div>
-
 
           <input
             type="hidden"
@@ -2463,9 +1926,7 @@
             autocomplete="off"
           >
 
-
           <div class="form-grid">
-
 
             <div class="field">
 
@@ -2483,7 +1944,6 @@
 
             </div>
 
-
             <div class="field">
 
               <label for="company">
@@ -2498,7 +1958,6 @@
               >
 
             </div>
-
 
             <div class="field">
 
@@ -2516,7 +1975,6 @@
 
             </div>
 
-
             <div class="field">
 
               <label for="phone">
@@ -2531,7 +1989,6 @@
               >
 
             </div>
-
 
             <div class="field full">
 
@@ -2565,7 +2022,6 @@
 
             </div>
 
-
             <div class="field full">
 
               <label for="message">
@@ -2580,7 +2036,6 @@
               ></textarea>
 
             </div>
-
 
             <div class="field full">
 
@@ -2599,37 +2054,35 @@
 
             </div>
 
-
           </div>
 
         </form>
 
       </div>
-
     </section>
 
 
-    <!-- ======================================
-         FINAL CTA
-         ====================================== -->
+    <!-- Final CTA -->
 
     <section class="final-cta">
-
       <div class="container final-cta-inner">
 
         <div class="final-cta-copy">
 
           <h2>
-            One platform. One point of contact. Total control.
+            Property Maintenance Made Simple.
           </h2>
 
+          <div class="final-cta-tagline">
+            You report it. We repair it.
+          </div>
+
           <p>
-            Discover a simpler way to manage property repairs with
-            PHIX-IT.
+            One platform, one point of contact and complete control
+            over every repair.
           </p>
 
         </div>
-
 
         <a
           href="#contact"
@@ -2641,40 +2094,33 @@
         </a>
 
       </div>
-
     </section>
-
 
   </main>
 
 
-  <!-- ======================================
-       FOOTER
-       ====================================== -->
+  <!-- Footer -->
 
   <footer>
-
     <div class="container">
 
-
       <div class="footer-grid">
-
 
         <div class="footer-about">
 
           <img
             src="logo.png"
-            alt="PHIX-IT Property Maintenance"
+            alt="PHIX-IT Property Solutions"
             class="footer-logo"
           >
 
           <p>
-            Property maintenance made simple for letting agents,
-            landlords and property managers across Scotland.
+            A repair management platform backed by real people who
+            get the work done. Supporting letting agents, landlords
+            and tradespeople across Scotland.
           </p>
 
         </div>
-
 
         <div class="footer-column">
 
@@ -2711,7 +2157,6 @@
           </ul>
 
         </div>
-
 
         <div class="footer-column">
 
@@ -2752,7 +2197,6 @@
 
         </div>
 
-
         <div class="footer-column">
 
           <h3>
@@ -2783,9 +2227,7 @@
 
         </div>
 
-
       </div>
-
 
       <div class="footer-bottom">
 
@@ -2794,19 +2236,16 @@
         </div>
 
         <div>
-          Property Maintenance Made Simple.
+          You report it. We repair it.
         </div>
 
       </div>
 
-
     </div>
-
   </footer>
 
 
   <script>
-
     function selectEnquiry(value){
 
       window.setTimeout(function(){
@@ -2820,12 +2259,10 @@
 
         select.value = value;
 
-      }, 100);
+      },100);
 
     }
-
   </script>
-
 
 </body>
 </html>
