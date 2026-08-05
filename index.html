@@ -1,4 +1,3 @@
-from pathlib import Path
 
 html = r'''<!DOCTYPE html>
 <html lang="en">
@@ -2067,7 +2066,3 @@ html = r'''<!DOCTYPE html>
 </body>
 </html>
 '''
-
-out = Path("/mnt/data/index.html")
-out.write_text(html, encoding="utf-8")
-print(out)
