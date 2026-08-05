@@ -115,7 +115,7 @@
       left:0;
       z-index:100;
       width:100%;
-      padding:20px 0;
+      padding:26px 0 18px;
     }
 
     .topbar{
@@ -136,8 +136,9 @@
 
     .site-logo{
       display:block;
-      width:390px;
+      width:350px;
       height:auto;
+      transform:translateY(7px);
     }
 
     .header-menu{
@@ -192,7 +193,7 @@
 
     .hero{
       position:relative;
-      min-height:860px;
+      min-height:790px;
       display:flex;
       align-items:center;
       overflow:hidden;
@@ -372,7 +373,7 @@
     .hero-visual{
       position:relative;
       min-width:0;
-      height:585px;
+      height:525px;
       display:flex;
       align-items:center;
       justify-content:flex-end;
@@ -395,26 +396,26 @@
     .hero-photo{
       position:relative;
       z-index:2;
-      width:112%;
-      max-width:910px;
+      width:103%;
+      max-width:850px;
       height:100%;
-      margin-right:-40px;
+      margin-right:-8px;
       object-fit:cover;
       object-position:center;
       -webkit-mask-image:
         linear-gradient(
           to right,
           transparent 0%,
-          rgba(0,0,0,.25) 8%,
-          #000 22%,
+          rgba(0,0,0,.55) 6%,
+          #000 15%,
           #000 100%
         );
       mask-image:
         linear-gradient(
           to right,
           transparent 0%,
-          rgba(0,0,0,.25) 8%,
-          #000 22%,
+          rgba(0,0,0,.55) 6%,
+          #000 15%,
           #000 100%
         );
       filter:drop-shadow(0 28px 35px rgba(6,24,44,.17));
@@ -438,7 +439,7 @@
     .audience-card{
       position:relative;
       overflow:hidden;
-      min-height:570px;
+      min-height:0;
       padding:42px;
       border:1px solid var(--border);
       border-top:5px solid var(--blue);
@@ -550,6 +551,53 @@
 
     .contractors .benefit-list .tick{
       background:var(--red);
+    }
+
+
+    .audience-media{
+      position:relative;
+      z-index:2;
+      height:215px;
+      margin:3px 0 25px;
+      overflow:hidden;
+      border:1px solid var(--border);
+      border-radius:17px;
+      background:
+        radial-gradient(
+          circle at 50% 70%,
+          rgba(22,136,238,.12),
+          transparent 48%
+        ),
+        #f8fbff;
+    }
+
+    .audience-media img{
+      width:100%;
+      height:100%;
+      object-fit:contain;
+    }
+
+    .contractors .audience-media{
+      border-color:#fecaca;
+      background:#fff7f7;
+    }
+
+    .contractors .audience-media img{
+      object-fit:cover;
+      object-position:center;
+    }
+
+    .reveal{
+      opacity:0;
+      transform:translateY(18px);
+      transition:
+        opacity .55s ease,
+        transform .55s ease;
+    }
+
+    .reveal.is-visible{
+      opacity:1;
+      transform:none;
     }
 
     /* =========================
@@ -1024,7 +1072,8 @@
       }
 
       .site-logo{
-        width:310px;
+        width:285px;
+        transform:translateY(5px);
       }
 
       .nav-links{
@@ -1133,7 +1182,8 @@
       }
 
       .site-logo{
-        width:195px;
+        width:190px;
+        transform:none;
       }
 
       .nav-contact{
@@ -1199,6 +1249,11 @@
 
       .audience-intro{
         min-height:0;
+      }
+
+
+      .audience-media{
+        height:190px;
       }
 
       .benefits-grid,
@@ -1287,10 +1342,10 @@
         </div>
 
         <p>
-          One trusted platform connecting letting agents with reliable
-          local tradespeople. From tenant repair reporting and contractor
-          allocation to quote approvals and invoicing, PHIX-IT keeps
-          every repair organised from start to finish.
+          One trusted platform connecting letting agents with a reliable
+          network of qualified local contractors. From tenant repair
+          reporting and contractor allocation to quote approvals and
+          invoicing, PHIX-IT keeps every repair organised from start to finish.
         </p>
 
         <ul class="hero-points">
@@ -1353,7 +1408,7 @@
 
   <main>
 
-    <section class="audiences">
+    <section class="audiences reveal">
       <div class="container">
 
         <div class="audience-grid">
@@ -1386,6 +1441,13 @@
               team valuable time, keeps tenants informed and gives you
               complete visibility over every repair from start to finish.
             </p>
+
+            <div class="audience-media">
+              <img
+                src="platform-dashboard-transparent.png"
+                alt="PHIX-IT dashboard displayed on a laptop and mobile phone"
+              >
+            </div>
 
             <ul class="benefit-list">
 
@@ -1466,6 +1528,13 @@
               work from letting agents across Scotland.
             </p>
 
+            <div class="audience-media">
+              <img
+                src="contractor-repair.png"
+                alt="PHIX-IT engineer carrying out an electrical repair"
+              >
+            </div>
+
             <ul class="benefit-list">
 
               <li>
@@ -1521,7 +1590,7 @@
       </div>
     </section>
 
-    <section class="benefits-strip">
+    <section class="benefits-strip reveal">
       <div class="container benefits-grid">
 
         <div class="benefit-item">
@@ -1560,7 +1629,7 @@
     </section>
 
     <section
-      class="platform"
+      class="platform reveal"
       id="platform"
     >
       <div class="container platform-grid">
@@ -1649,7 +1718,7 @@
     </section>
 
     <section
-      class="how"
+      class="how reveal"
       id="how-it-works"
     >
       <div class="container">
@@ -1729,7 +1798,7 @@
     </section>
 
     <section
-      class="contact"
+      class="contact reveal"
       id="contact"
     >
       <div class="container contact-grid">
@@ -1917,7 +1986,7 @@
       </div>
     </section>
 
-    <section class="final-cta">
+    <section class="final-cta reveal">
       <div class="container final-cta-inner">
 
         <div class="final-cta-copy">
@@ -2064,6 +2133,26 @@
       },100);
 
     }
+
+    var revealObserver =
+      new IntersectionObserver(function(entries){
+
+        entries.forEach(function(entry){
+
+          if(entry.isIntersecting){
+            entry.target.classList.add('is-visible');
+            revealObserver.unobserve(entry.target);
+          }
+
+        });
+
+      },{
+        threshold:0.08
+      });
+
+    document.querySelectorAll('.reveal').forEach(function(element){
+      revealObserver.observe(element);
+    });
   </script>
 
 </body>
