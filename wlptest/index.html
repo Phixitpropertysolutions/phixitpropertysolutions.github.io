@@ -1,0 +1,2087 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1, viewport-fit=cover"
+  >
+
+  <title>Report a Property Repair</title>
+
+  <style>
+    :root {
+      --blue: #149fe3;
+      --blue-dark: #087fb9;
+      --navy: #061b2d;
+      --navy-light: #0b304d;
+      --page: #e8edf2;
+      --card: #ffffff;
+      --field: #f7f9fb;
+      --text: #14202b;
+      --muted: #5c6977;
+      --border: #cbd5df;
+      --danger: #c7353d;
+      --warning: #d78100;
+      --success: #168857;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+      background: var(--page);
+      color: var(--text);
+      font-family:
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Arial,
+        sans-serif;
+    }
+
+    body {
+      padding: 20px;
+    }
+
+    button,
+    input,
+    textarea {
+      font: inherit;
+    }
+
+    .page {
+      width: 100%;
+      max-width: 920px;
+      margin: 0 auto;
+      overflow: hidden;
+      border-radius: 20px;
+      background: var(--card);
+      box-shadow: 0 22px 55px rgba(5, 24, 40, 0.24);
+    }
+
+    .header {
+      position: relative;
+      overflow: hidden;
+    padding: 26px 22px;
+      border-bottom: 5px solid var(--blue);
+      color: #fff;
+      background:
+        linear-gradient(
+          135deg,
+          var(--navy) 0%,
+          var(--navy-light) 100%
+        );
+    }
+
+    .header::after {
+      content: "";
+      position: absolute;
+      right: -80px;
+      bottom: -140px;
+      width: 290px;
+      height: 290px;
+      border-radius: 50%;
+      background: rgba(20, 159, 227, 0.15);
+    }
+
+.header-content{
+    position:relative;
+    z-index:1;
+    padding-right:175px;
+}
+    .eyebrow {
+      margin: 0 0 7px;
+      color: #65caff;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .header h1 {
+      margin: 0;
+      color: #fff;
+font-size: clamp(24px, 4vw, 34px);
+      line-height: 1.08;
+      letter-spacing: -0.03em;
+    }
+
+    .header p {
+      max-width: 650px;
+margin: 8px 0 0;
+      color: #dceaf4;
+font-size: 14px;
+      line-height: 1.55;
+    }
+
+    .content {
+      padding: 28px 30px 34px;
+      background: var(--page);
+    }
+
+    .notice {
+      display: flex;
+      align-items: flex-start;
+      gap: 13px;
+      margin-bottom: 18px;
+      padding: 15px 17px;
+      border: 1px solid #9fd5f0;
+      border-radius: 13px;
+      background: #e7f6fe;
+    }
+
+    .notice-icon {
+      width: 36px;
+      height: 36px;
+      flex: 0 0 36px;
+      display: grid;
+      place-items: center;
+      border-radius: 10px;
+      background: var(--blue);
+      color: #fff;
+      font-weight: 900;
+    }
+
+    .notice strong {
+      display: block;
+      margin-bottom: 3px;
+      color: var(--navy);
+      font-size: 14px;
+    }
+
+    .notice p {
+      margin: 0;
+      color: #405464;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .form-section {
+      margin-top: 16px;
+      padding: 21px;
+      border: 1px solid #d3dbe3;
+      border-radius: 15px;
+      background: #fff;
+      box-shadow: 0 4px 14px rgba(5, 24, 40, 0.06);
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      margin-bottom: 18px;
+    }
+
+.section-number{
+    width:42px;
+    height:42px;
+    flex:0 0 42px;
+    display:grid;
+    place-items:center;
+    border-radius:50%;
+    background:#149fe3;
+    color:#fff;
+    font-size:16px;
+    font-weight:800;
+    box-shadow:0 6px 16px rgba(20,159,227,.35);
+}
+    .section-heading h2 {
+      margin: 0;
+      color: var(--navy);
+font-size:24px;
+      line-height: 1.15;
+    }
+
+    .section-heading p {
+      margin: 4px 0 0;
+      color: var(--muted);
+font-size:14px;
+      line-height: 1.4;
+    }
+
+    .fields {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 17px;
+    }
+
+    .full {
+      grid-column: 1 / -1;
+    }
+
+    .field label {
+      display: block;
+      margin-bottom: 7px;
+      color: #20303d;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .required::after {
+      content: " *";
+      color: var(--danger);
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      background: var(--field);
+      color: var(--text);
+      outline: none;
+      transition:
+        border-color 0.15s ease,
+        box-shadow 0.15s ease,
+        background 0.15s ease;
+    }
+
+    input {
+      height: 52px;
+      padding: 0 14px;
+    }
+
+textarea {
+    min-height: 180px;
+    padding: 16px;
+      resize: vertical;
+      line-height: 1.5;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: var(--blue);
+      background: #fff;
+      box-shadow: 0 0 0 3px rgba(20, 159, 227, 0.16);
+    }
+
+    .help {
+      margin-top: 6px;
+color: #475569;
+font-size: 13px;
+      line-height: 1.4;
+    }
+
+    /* Exact address layout:
+       short house | long street
+       long town   | short postcode
+    */
+
+.address-grid {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  grid-template-areas:
+    "house house street street street street street street street street"
+    "town town town town town town town postcode postcode postcode";
+  gap: 17px 18px;
+}
+
+    .house-field {
+      grid-area: house;
+    }
+
+    .street-field {
+      grid-area: street;
+    }
+
+    .town-field {
+      grid-area: town;
+    }
+
+    .postcode-field {
+      grid-area: postcode;
+    }
+
+    .urgency-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 11px;
+    }
+
+.urgency-option {
+  position: relative;
+  display: block;
+  height: 100%;
+  cursor: pointer;
+}
+
+    .urgency-option input {
+      position: absolute;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+.urgency-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 105px;
+  height: 100%;
+  padding: 15px;
+  border: 2px solid #d5dde5;
+  border-radius: 12px;
+  background: #f8fafc;
+  transition:
+    border-color 0.15s ease,
+    background 0.15s ease,
+    box-shadow 0.15s ease;
+}
+
+    .urgency-option input:checked + .urgency-card {
+      border-color: var(--blue);
+      background: #e8f6fe;
+      box-shadow: 0 0 0 3px rgba(20, 159, 227, 0.12);
+    }
+
+    .urgency-title {
+      display: block;
+      margin-bottom: 5px;
+      color: var(--navy);
+      font-size: 15px;
+      font-weight: 800;
+    }
+
+    .urgency-text {
+      display: block;
+      color: #566675;
+      font-size: 12px;
+      line-height: 1.45;
+    }
+
+    .emergency-message {
+      margin-top: 13px;
+      padding: 13px 14px;
+      border-left: 4px solid var(--warning);
+      border-radius: 8px;
+      background: #fff1d7;
+      color: #68430c;
+      font-size: 12px;
+      line-height: 1.5;
+    }
+
+    .error {
+      display: none;
+      margin-top: 16px;
+      padding: 14px 16px;
+      border: 1px solid #e7adad;
+      border-radius: 10px;
+      background: #fff1f1;
+      color: #942a2a;
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    .error.visible {
+      display: block;
+    }
+
+    .submit-area {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      margin-top: 18px;
+      padding: 19px 21px;
+      border: 1px solid #d3dbe3;
+      border-radius: 14px;
+      background: #fff;
+    }
+
+    .submit-note {
+      flex: 1;
+      color: #556473;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+
+    .submit-button {
+      min-width: 190px;
+      height: 54px;
+      padding: 0 24px;
+      border: 0;
+      border-radius: 11px;
+      background: var(--blue);
+      color: #fff;
+      cursor: pointer;
+      font-size: 15px;
+      font-weight: 800;
+      box-shadow: 0 8px 18px rgba(20, 159, 227, 0.3);
+    }
+
+    .submit-button:hover {
+      background: var(--blue-dark);
+    }
+
+    .submit-button:disabled {
+      cursor: not-allowed;
+      opacity: 0.65;
+    }
+
+    .overlay {
+      position: fixed;
+      inset: 0;
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background: rgba(3, 14, 24, 0.82);
+      backdrop-filter: blur(5px);
+    }
+
+    .overlay.visible {
+      display: flex;
+    }
+
+    .modal {
+      width: 100%;
+      max-width: 420px;
+      padding: 30px 26px;
+      border-radius: 18px;
+      background: #fff;
+      text-align: center;
+      box-shadow: 0 24px 70px rgba(0, 0, 0, 0.35);
+    }
+
+    .spinner {
+      width: 50px;
+      height: 50px;
+      margin: 0 auto 18px;
+      border: 5px solid #dceaf3;
+      border-top-color: var(--blue);
+      border-radius: 50%;
+      animation: spin 0.85s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .success-icon {
+      width: 62px;
+      height: 62px;
+      display: grid;
+      place-items: center;
+      margin: 0 auto 17px;
+      border-radius: 50%;
+      background: #e4f5ec;
+      color: var(--success);
+      font-size: 32px;
+      font-weight: 900;
+    }
+
+    .modal h3 {
+      margin: 0 0 9px;
+      color: var(--navy);
+      font-size: 24px;
+    }
+
+    .modal p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    .modal-button {
+      width: 100%;
+      height: 50px;
+      margin-top: 22px;
+      border: 0;
+      border-radius: 11px;
+      background: var(--blue);
+      color: #fff;
+      cursor: pointer;
+      font-weight: 800;
+    }
+.header-logo-wrap{
+    position:absolute;
+    top:18px;
+    right:22px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:8px 12px;
+    border-radius:12px;
+    background:#fff;
+    box-shadow:0 8px 20px rgba(0,0,0,.12);
+}
+
+.header-logo{
+    display:block;
+    width:auto;
+    max-width:140px;
+    max-height:48px;
+    object-fit:contain;
+}
+    @media (max-width: 700px) {
+      body {
+        padding: 0;
+      }
+
+      .page {
+        min-height: 100vh;
+        border-radius: 0;
+        box-shadow: none;
+      }
+
+    .header {
+    padding:16px 16px 15px;
+    border-bottom-width:3px;
+}
+
+.header::after{
+    display:none;
+}
+
+.header-content{
+    position:relative;
+    z-index:1;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    padding-right:0;
+}
+
+.header-logo-wrap{
+    position:static;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    width:100%;
+    margin:0 auto 18px;
+    padding:8px 12px;
+    border-radius:12px;
+    background:#ffffff;
+    box-shadow:0 4px 12px rgba(0,0,0,.14);
+}
+
+.header-logo{
+    display:block;
+    width:auto;
+    max-width:160px;
+    max-height:52px;
+    object-fit:contain;
+}
+
+.header h1{
+    width:100%;
+    margin:0;
+    text-align:center;
+    font-size:32px;
+    line-height:1.15;
+}
+
+.header p{
+    width:100%;
+    margin:12px 0 0;
+    text-align:center;
+    font-size:15px;
+    line-height:1.6;
+    color:#dceaf4;
+}
+      .header h1 {
+        font-size: 30px;
+      }
+
+      .header p {
+        font-size: 14px;
+      }
+
+      .content {
+        padding: 16px 13px 100px;
+      }
+
+      .notice {
+        padding: 14px;
+      }
+
+ .form-section{
+    margin-top:22px;
+    padding:22px;
+    border:1px solid #dbe4ec;
+    border-radius:18px;
+    background:#ffffff;
+    box-shadow:0 10px 28px rgba(5,24,40,.08);
+}
+      .section-heading {
+        align-items: flex-start;
+        margin-bottom: 16px;
+      }
+
+      .section-heading h2 {
+        font-size: 19px;
+      }
+
+      .fields {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .full {
+        grid-column: auto;
+      }
+
+      input,
+      textarea {
+        font-size: 16px;
+      }
+
+      input {
+        height: 54px;
+      }
+
+      /*
+        Mobile keeps the requested address proportions:
+        short house + long street
+        long town + short postcode
+      */
+
+.address-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    grid-template-areas:
+      "house"
+      "street"
+      "town"
+      "postcode";
+    gap:16px;
+}
+      .address-grid label {
+        min-height: 34px;
+        display: flex;
+        align-items: flex-end;
+        font-size: 12px;
+        line-height: 1.2;
+      }
+
+.urgency-grid{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:12px;
+}
+
+      .urgency-card {
+min-height:72px;
+padding:18px;
+      }
+
+.submit-area {
+    display: block;
+    margin-top: 24px;
+    padding: 0;
+    border: 0;
+    background: transparent;
+    box-shadow: none;
+}
+
+.submit-note {
+    display: none;
+}
+
+.submit-button {
+    width: 100%;
+    height: 56px;
+    font-size: 16px;
+}
+
+/* closes @media (max-width: 700px) */
+}
+    @media (max-width: 390px) {
+      .content {
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+
+      .form-section {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+
+      .address-grid {
+grid-template-columns:
+          105px
+          6fr
+          4fr;
+        gap: 14px 9px;
+      }
+
+      .address-grid label {
+        font-size: 11px;
+      }
+    }
+
+.upload-input {
+  display: none !important;
+}
+
+/* Must be more specific than .field label */
+.field label.upload-box {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  min-height: 94px;
+  margin: 0;
+  padding: 18px;
+  border: 2px dashed #149fe3;
+  border-radius: 16px;
+  background: #f0f9ff;
+  cursor: pointer;
+  transition:
+    border-color .2s ease,
+    background .2s ease,
+    transform .2s ease;
+}
+
+.field label.upload-box:hover {
+  border-color: var(--blue-dark);
+  background: #e7f6fe;
+  transform: translateY(-1px);
+}
+
+.upload-icon {
+  width: 52px;
+  height: 52px;
+  min-width: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: #149fe3;
+  color: #fff;
+  font-size: 29px;
+  font-weight: 500;
+  line-height: 1;
+  box-shadow: 0 6px 14px rgba(20, 159, 227, .28);
+}
+
+.upload-text {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.upload-text strong {
+  color: var(--navy);
+  font-size: 17px;
+  font-weight: 800;
+}
+
+.upload-text span {
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.upload-file-list {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 12px;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.tenant-upload-file-row {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  min-height: 38px;
+  padding: 8px 11px;
+  border: 1px solid #dbe4ec;
+  border-radius: 9px;
+  background: #f8fafc;
+  color: #475569;
+}
+
+.tenant-upload-file-status {
+  width: 20px;
+  min-width: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  line-height: 1;
+}
+
+.tenant-upload-file-name {
+  min-width: 0;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tenant-upload-file-row.uploading {
+  border-color: #9fcce4;
+  background: #f3faff;
+  color: #087fb9;
+}
+
+.tenant-upload-file-row.complete {
+  border-color: #bbdfcc;
+  background: #f0faf5;
+  color: #168857;
+}
+
+.tenant-upload-file-row.failed {
+  border-color: #e7adad;
+  background: #fff1f1;
+  color: #c7353d;
+}
+
+.tenant-upload-spinner {
+  width: 15px;
+  height: 15px;
+  display: block;
+  border: 2px solid #c9dce7;
+  border-top-color: #149fe3;
+  border-radius: 50%;
+  animation: spin .75s linear infinite;
+}
+
+.tenant-upload-summary {
+  margin-top: 3px;
+  padding: 7px 2px 0;
+  color: #168857;
+  font-size: 13px;
+  font-weight: 800;
+}
+
+@media (max-width: 700px) {
+  .field label.upload-box {
+    min-height: 100px;
+    padding: 16px;
+    gap: 13px;
+  }
+
+  .upload-icon {
+    width: 48px;
+    height: 48px;
+    min-width: 48px;
+  }
+
+  .upload-text strong {
+    font-size: 16px;
+  }
+
+  .upload-text span {
+    font-size: 13px;
+  }
+}
+
+
+
+  </style>
+</head>
+
+<body>
+
+  <main class="page">
+
+    <header class="header">
+      <div class="header-content">
+<div class="header-logo-wrap">
+  <img
+    class="header-logo"
+    src="https://drive.google.com/thumbnail?id=1MbTvgOoFSr7yZU370AGR558XvIltZzUG&sz=w1000"
+    alt="We Let Property"
+  >
+</div>
+        <h1>Report a Property Repair</h1>
+
+<p>Please provide as much detail as possible.</p>
+      </div>
+    </header>
+
+    <div class="content">
+
+
+
+      <form id="repairForm" novalidate>
+
+        <section class="form-section">
+
+          <div class="section-heading">
+            <div class="section-number">1</div>
+
+            <div>
+              <h2>Your details</h2>
+
+              <p>
+              </p>
+            </div>
+          </div>
+
+          <div class="fields">
+
+            <div class="field">
+              <label class="required" for="tenantName">
+                Full name
+              </label>
+
+              <input
+                id="tenantName"
+                type="text"
+                autocomplete="name"
+                required
+              >
+            </div>
+
+            <div class="field">
+              <label class="required" for="tenantContact">
+                Telephone number
+              </label>
+
+              <input
+                id="tenantContact"
+                type="tel"
+                autocomplete="tel"
+                inputmode="tel"
+                required
+              >
+            </div>
+
+          </div>
+        </section>
+
+        <section class="form-section">
+
+          <div class="section-heading">
+            <div class="section-number">2</div>
+
+            <div>
+              <h2>Property address</h2>
+            </div>
+          </div>
+
+          <div class="address-grid">
+
+            <div class="field house-field">
+              <label class="required" for="houseFlat">
+                House / Flat
+              </label>
+
+              <input
+                id="houseFlat"
+                type="text"
+                autocomplete="address-line1"
+                required
+              >
+            </div>
+
+            <div class="field street-field">
+              <label class="required" for="street">
+                Street
+              </label>
+
+              <input
+                id="street"
+                type="text"
+                autocomplete="address-line2"
+                required
+              >
+            </div>
+
+            <div class="field town-field">
+              <label class="required" for="city">
+                Town / City
+              </label>
+
+              <input
+                id="city"
+                type="text"
+                autocomplete="address-level2"
+                required
+              >
+            </div>
+
+            <div class="field postcode-field">
+              <label class="required" for="postcode">
+                Postcode
+              </label>
+
+              <input
+                id="postcode"
+                type="text"
+                autocomplete="postal-code"
+                required
+              >
+            </div>
+
+          </div>
+        </section>
+
+        <section class="form-section">
+
+          <div class="section-heading">
+            <div class="section-number">3</div>
+
+            <div>
+              <h2>Repair details</h2>
+
+              <p>
+              </p>
+            </div>
+          </div>
+
+          <div class="fields">
+
+            <div class="field full">
+              <label class="required" for="description">
+                What repair is required?
+              </label>
+
+              <textarea
+                id="description"
+placeholder="Example: The kitchen sink is leaking underneath the cupboard. It started yesterday and only leaks when the tap is turned on."
+                required
+              ></textarea>
+
+              <div class="help">
+                Include the room, exact location, when it started and whether
+                the issue is getting worse.
+              </div>
+            </div>
+
+            <div class="field full">
+              <label>How urgent is the repair?</label>
+
+              <div class="urgency-grid">
+
+                <label class="urgency-option">
+                  <input
+                    type="radio"
+                    name="urgency"
+                    value="Routine"
+                    checked
+                  >
+
+                  <span class="urgency-card">
+                    <span class="urgency-title">
+                      Routine
+                    </span>
+
+                    <span class="urgency-text">
+                      The issue is inconvenient, but the property remains safe
+                      and usable.
+                    </span>
+                  </span>
+                </label>
+
+                <label class="urgency-option">
+                  <input
+                    type="radio"
+                    name="urgency"
+                    value="Urgent"
+                  >
+
+                  <span class="urgency-card">
+                    <span class="urgency-title">
+                      Urgent
+                    </span>
+
+                    <span class="urgency-text">
+                      The issue is causing significant disruption or may lead
+                      to further damage.
+                    </span>
+                  </span>
+                </label>
+
+                <label class="urgency-option">
+                  <input
+                    type="radio"
+                    name="urgency"
+                    value="Emergency"
+                  >
+
+                  <span class="urgency-card">
+                    <span class="urgency-title">
+                      Emergency
+                    </span>
+
+                    <span class="urgency-text">
+                      There is an immediate danger to people, the property or
+                      essential services.
+                    </span>
+                  </span>
+                </label>
+
+              </div>
+
+
+            </div>
+
+<div class="field full">
+  <label>
+    Photos / Videos
+  </label>
+
+  <label class="upload-box" for="repairFiles">
+    <div class="upload-icon">＋</div>
+
+    <div class="upload-text">
+<strong>📷 Add photos or videos</strong>
+<span>This helps us diagnose the repair much faster.</span>
+    </div>
+  </label>
+
+  <input
+    id="repairFiles"
+    class="upload-input"
+    type="file"
+    accept="image/*,video/*"
+    multiple
+  >
+
+  <div id="uploadFileList" class="upload-file-list"></div>
+</div>  
+          </div>
+        </section>
+
+        <div id="formError" class="error"></div>
+
+        <div class="submit-area">
+
+          <div class="submit-note">
+            Your repair will be reviewed by your managing agent before any work
+            is authorised.
+          </div>
+
+<button
+  id="submitButton"
+  class="submit-button"
+  type="submit"
+>
+  Submit repair
+</button>
+
+        </div>
+
+      </form>
+    </div>
+  </main>
+<div
+  id="fileUploadOverlay"
+  class="overlay"
+  aria-hidden="true"
+>
+  <div class="modal">
+    <div class="spinner"></div>
+
+    <h3 id="fileUploadOverlayTitle">
+      Uploading files
+    </h3>
+
+    <p id="fileUploadOverlayMessage">
+      Please wait while your photos or videos are securely uploaded.
+    </p>
+  </div>
+</div>
+  <div
+    id="loadingOverlay"
+    class="overlay"
+    aria-hidden="true"
+  >
+    <div class="modal">
+      <div class="spinner"></div>
+
+      <h3>Submitting your report</h3>
+
+      <p>
+        Please wait while your repair details are securely recorded.
+      </p>
+    </div>
+  </div>
+
+  <div
+    id="successOverlay"
+    class="overlay"
+    aria-hidden="true"
+  >
+    <div class="modal">
+      <div class="success-icon">✓</div>
+
+      <h3>Repair report received</h3>
+
+      <p>
+        Thank you. Your repair has been sent to your managing agent for review.
+        They will contact you if further information is required.
+      </p>
+
+      <button
+        type="button"
+        class="modal-button"
+        onclick="closeSuccess()"
+      >
+        Close
+      </button>
+    </div>
+  </div>
+
+  <script>
+    const TENANT_API_URL = "https://script.google.com/macros/s/AKfycbxjB835R-G0JTMaKqIgciQFmbBpAvHfb10etwKVqsL2beu8AZzQ-Elk9DcopoL65aCZ9Q/exec";
+
+    const repairForm =
+      document.getElementById('repairForm');
+
+    const submitButton =
+      document.getElementById('submitButton');
+
+    const loadingOverlay =
+      document.getElementById('loadingOverlay');
+
+    const successOverlay =
+      document.getElementById('successOverlay');
+
+    const formError =
+      document.getElementById('formError');
+
+    const repairFiles =
+      document.getElementById('repairFiles');
+
+    const uploadFileList =
+      document.getElementById('uploadFileList');
+
+    const fileUploadOverlay =
+      document.getElementById('fileUploadOverlay');
+
+    const fileUploadOverlayTitle =
+      document.getElementById('fileUploadOverlayTitle');
+
+    const fileUploadOverlayMessage =
+      document.getElementById('fileUploadOverlayMessage');
+
+    let tenantUploadFolderId = '';
+    let tenantUploadsBusy = false;
+    let uploadedTenantFiles = [];
+
+
+    /*
+     * Send one request to the Apps Script backend without navigating
+     * the tenant away from phix-it.co.uk.
+     *
+     * A temporary hidden iframe receives the Apps Script response.
+     * The response posts its result back to this page using postMessage.
+     */
+    function tenantApiCall_(payload) {
+
+      return new Promise(function(resolve, reject) {
+
+        const iframe =
+          document.createElement('iframe');
+
+        const iframeName =
+          'tenantApiFrame_' +
+          Date.now() +
+          '_' +
+          Math.random().toString(36).slice(2);
+
+        iframe.name = iframeName;
+        iframe.style.display = 'none';
+        iframe.setAttribute('aria-hidden', 'true');
+
+        const form =
+          document.createElement('form');
+
+        form.method = 'POST';
+        form.action = TENANT_API_URL;
+        form.target = iframeName;
+        form.style.display = 'none';
+
+        const input =
+          document.createElement('input');
+
+        input.type = 'hidden';
+        input.name = 'payload';
+        input.value = JSON.stringify(payload);
+
+        form.appendChild(input);
+
+        let finished = false;
+
+        function cleanup() {
+
+          window.removeEventListener(
+            'message',
+            handleMessage
+          );
+
+          if (form.parentNode) {
+            form.parentNode.removeChild(form);
+          }
+
+          window.setTimeout(function() {
+            if (iframe.parentNode) {
+              iframe.parentNode.removeChild(iframe);
+            }
+          }, 100);
+        }
+
+
+        function finishWithError(message) {
+
+          if (finished) {
+            return;
+          }
+
+          finished = true;
+          cleanup();
+
+          reject(
+            new Error(
+              message ||
+              'The repair service could not be reached. Please try again.'
+            )
+          );
+        }
+
+
+        function handleMessage(event) {
+
+          if (
+            !iframe.contentWindow ||
+            event.source !== iframe.contentWindow
+          ) {
+            return;
+          }
+
+          if (finished) {
+            return;
+          }
+
+          finished = true;
+          cleanup();
+
+          let data = event.data;
+
+          if (typeof data === 'string') {
+            try {
+              data = JSON.parse(data);
+            } catch (e) {
+              // Leave as string below.
+            }
+          }
+
+          if (
+            !data ||
+            typeof data !== 'object'
+          ) {
+            reject(
+              new Error(
+                'An invalid response was received from the repair service.'
+              )
+            );
+            return;
+          }
+
+          if (data.success === false) {
+            reject(
+              new Error(
+                data.message ||
+                'The repair request could not be completed.'
+              )
+            );
+            return;
+          }
+
+          resolve(data);
+        }
+
+
+        window.addEventListener(
+          'message',
+          handleMessage
+        );
+
+        document.body.appendChild(iframe);
+        document.body.appendChild(form);
+
+        /*
+         * Allow the iframe to exist in the DOM before submitting.
+         */
+        window.setTimeout(function() {
+
+          try {
+            form.submit();
+          } catch (error) {
+            finishWithError(
+              error && error.message
+                ? error.message
+                : String(error)
+            );
+          }
+
+        }, 30);
+
+
+        /*
+         * Prevent an endless spinner if Google never returns a response.
+         * Large videos may take time, so allow two minutes.
+         */
+        window.setTimeout(function() {
+
+          if (!finished) {
+            finishWithError(
+              'The repair service took too long to respond. Please try again.'
+            );
+          }
+
+        }, 120000);
+
+      });
+    }
+
+
+    if (repairFiles && uploadFileList) {
+
+      repairFiles.addEventListener(
+        'change',
+        uploadSelectedTenantFiles
+      );
+    }
+
+
+    async function uploadSelectedTenantFiles() {
+
+      const files =
+        Array.from(repairFiles.files || []);
+
+      if (!files.length) {
+        return;
+      }
+
+      const maximumFileSize =
+        20 * 1024 * 1024;
+
+      const oversizedFile =
+        files.find(function(file) {
+          return file.size > maximumFileSize;
+        });
+
+      if (oversizedFile) {
+
+        repairFiles.value = '';
+
+        showError(
+          oversizedFile.name +
+          ' is larger than the 20MB upload limit.'
+        );
+
+        return;
+      }
+
+      clearError();
+
+      tenantUploadsBusy = true;
+      submitButton.disabled = true;
+
+      showFileUploadOverlay_(
+        files.length,
+        uploadedTenantFiles.length
+      );
+
+      const uploadRows =
+        createTenantUploadRows_(files);
+
+      let currentFileIndex = -1;
+
+      try {
+
+        if (!tenantUploadFolderId) {
+
+          const session =
+            await createTenantUploadSessionClient_();
+
+          tenantUploadFolderId =
+            session.folderId;
+        }
+
+        for (
+          let fileIndex = 0;
+          fileIndex < files.length;
+          fileIndex++
+        ) {
+
+          currentFileIndex = fileIndex;
+
+          const file =
+            files[fileIndex];
+
+          updateFileUploadOverlay_(
+            fileIndex + 1,
+            files.length,
+            file.name
+          );
+
+          setTenantUploadRowState_(
+            uploadRows[fileIndex],
+            'uploading'
+          );
+
+          const base64 =
+            await readTenantFileAsBase64_(file);
+
+          const result =
+            await uploadTenantFileClient_({
+              folderId: tenantUploadFolderId,
+              fileName: file.name,
+              mimeType:
+                file.type ||
+                'application/octet-stream',
+              base64: base64
+            });
+
+          uploadedTenantFiles.push({
+            name:
+              result && result.fileName
+                ? result.fileName
+                : file.name,
+            size: file.size,
+            lastModified: file.lastModified
+          });
+
+          setTenantUploadRowState_(
+            uploadRows[fileIndex],
+            'complete'
+          );
+        }
+
+        renderTenantUploadSummary_();
+
+        repairFiles.value = '';
+
+      } catch (error) {
+
+        if (
+          currentFileIndex >= 0 &&
+          uploadRows[currentFileIndex]
+        ) {
+          setTenantUploadRowState_(
+            uploadRows[currentFileIndex],
+            'failed'
+          );
+        }
+
+        showError(
+          error && error.message
+            ? error.message
+            : String(error)
+        );
+
+      } finally {
+
+        tenantUploadsBusy = false;
+        submitButton.disabled = false;
+
+        hideFileUploadOverlay_();
+      }
+    }
+
+
+    function createTenantUploadRows_(files) {
+
+      removeTenantUploadSummary_();
+
+      return files.map(function(file) {
+
+        const row =
+          document.createElement('div');
+
+        row.className =
+          'tenant-upload-file-row';
+
+        const status =
+          document.createElement('span');
+
+        status.className =
+          'tenant-upload-file-status';
+
+        status.textContent = '○';
+
+        const name =
+          document.createElement('span');
+
+        name.className =
+          'tenant-upload-file-name';
+
+        name.textContent =
+          file.name;
+
+        row.appendChild(status);
+        row.appendChild(name);
+
+        uploadFileList.appendChild(row);
+
+        return row;
+      });
+    }
+
+
+    function removeTenantUploadSummary_() {
+
+      const existingSummary =
+        uploadFileList.querySelector(
+          '.tenant-upload-summary'
+        );
+
+      if (existingSummary) {
+        existingSummary.remove();
+      }
+    }
+
+
+    function renderTenantUploadSummary_() {
+
+      removeTenantUploadSummary_();
+
+      const count =
+        uploadedTenantFiles.length;
+
+      if (!count) {
+        return;
+      }
+
+      const summary =
+        document.createElement('div');
+
+      summary.className =
+        'tenant-upload-summary';
+
+      summary.textContent =
+        count === 1
+          ? '✓ 1 file attached to this report'
+          : '✓ ' +
+            count +
+            ' files attached to this report';
+
+      uploadFileList.appendChild(summary);
+    }
+
+
+    function showFileUploadOverlay_(
+      newFileCount,
+      existingFileCount
+    ) {
+
+      if (!fileUploadOverlay) {
+        return;
+      }
+
+      const totalAfterUpload =
+        existingFileCount + newFileCount;
+
+      if (fileUploadOverlayTitle) {
+        fileUploadOverlayTitle.textContent =
+          newFileCount === 1
+            ? 'Uploading file'
+            : 'Uploading ' +
+              newFileCount +
+              ' files';
+      }
+
+      if (fileUploadOverlayMessage) {
+        fileUploadOverlayMessage.textContent =
+          'Please keep this page open. ' +
+          totalAfterUpload +
+          (
+            totalAfterUpload === 1
+              ? ' file will be attached to your report.'
+              : ' files will be attached to your report.'
+          );
+      }
+
+      fileUploadOverlay.classList.add(
+        'visible'
+      );
+
+      fileUploadOverlay.setAttribute(
+        'aria-hidden',
+        'false'
+      );
+    }
+
+
+    function updateFileUploadOverlay_(
+      currentNumber,
+      totalFiles,
+      fileName
+    ) {
+
+      if (!fileUploadOverlayMessage) {
+        return;
+      }
+
+      fileUploadOverlayMessage.textContent =
+        'Uploading ' +
+        currentNumber +
+        ' of ' +
+        totalFiles +
+        ': ' +
+        fileName;
+    }
+
+
+    function hideFileUploadOverlay_() {
+
+      if (!fileUploadOverlay) {
+        return;
+      }
+
+      fileUploadOverlay.classList.remove(
+        'visible'
+      );
+
+      fileUploadOverlay.setAttribute(
+        'aria-hidden',
+        'true'
+      );
+    }
+
+
+    function setTenantUploadRowState_(
+      row,
+      state
+    ) {
+
+      if (!row) {
+        return;
+      }
+
+      row.classList.remove(
+        'uploading',
+        'complete',
+        'failed'
+      );
+
+      row.classList.add(state);
+
+      const status =
+        row.querySelector(
+          '.tenant-upload-file-status'
+        );
+
+      if (!status) {
+        return;
+      }
+
+      status.innerHTML = '';
+
+      if (state === 'uploading') {
+
+        const spinner =
+          document.createElement('span');
+
+        spinner.className =
+          'tenant-upload-spinner';
+
+        status.appendChild(spinner);
+
+      } else if (state === 'complete') {
+
+        status.textContent = '✓';
+
+      } else if (state === 'failed') {
+
+        status.textContent = '✕';
+      }
+    }
+
+
+    function createTenantUploadSessionClient_() {
+
+      return tenantApiCall_({
+        action: 'createUploadSession'
+      });
+    }
+
+
+    function uploadTenantFileClient_(data) {
+
+      return tenantApiCall_({
+        action: 'uploadFile',
+        folderId: data.folderId,
+        fileName: data.fileName,
+        mimeType: data.mimeType,
+        base64: data.base64
+      });
+    }
+
+
+    function submitTenantRepairClient_(data) {
+
+      return tenantApiCall_({
+        action: 'submitRepair',
+        tenantName: data.tenantName,
+        tenantContact: data.tenantContact,
+        houseFlat: data.houseFlat,
+        street: data.street,
+        town: data.town || '',
+        city: data.city,
+        postcode: data.postcode,
+        description: data.description,
+        urgency: data.urgency || 'Routine',
+        uploadFolderId: data.uploadFolderId || ''
+      });
+    }
+
+
+    function readTenantFileAsBase64_(file) {
+
+      return new Promise(function(resolve, reject) {
+
+        const reader =
+          new FileReader();
+
+        reader.onload = function() {
+
+          const result =
+            String(reader.result || '');
+
+          const commaPosition =
+            result.indexOf(',');
+
+          resolve(
+            commaPosition === -1
+              ? result
+              : result.substring(
+                  commaPosition + 1
+                )
+          );
+        };
+
+        reader.onerror = function() {
+          reject(
+            new Error(
+              'The file could not be read: ' +
+              file.name
+            )
+          );
+        };
+
+        reader.readAsDataURL(file);
+      });
+    }
+
+
+    repairForm.addEventListener(
+      'submit',
+      submitRepair
+    );
+
+
+    async function submitRepair(event) {
+
+      event.preventDefault();
+
+      clearError();
+
+      if (tenantUploadsBusy) {
+        showError(
+          'Please wait for the selected files to finish uploading.'
+        );
+        return;
+      }
+
+      if (!repairForm.reportValidity()) {
+        return;
+      }
+
+      const selectedUrgency =
+        document.querySelector(
+          'input[name="urgency"]:checked'
+        );
+
+      const payload = {
+
+        tenantName:
+          document
+            .getElementById('tenantName')
+            .value
+            .trim(),
+
+        tenantContact:
+          document
+            .getElementById('tenantContact')
+            .value
+            .trim(),
+
+        houseFlat:
+          document
+            .getElementById('houseFlat')
+            .value
+            .trim(),
+
+        street:
+          document
+            .getElementById('street')
+            .value
+            .trim(),
+
+        town: '',
+
+        city:
+          document
+            .getElementById('city')
+            .value
+            .trim(),
+
+        postcode:
+          document
+            .getElementById('postcode')
+            .value
+            .trim(),
+
+        description:
+          document
+            .getElementById('description')
+            .value
+            .trim(),
+
+        urgency:
+          selectedUrgency
+            ? selectedUrgency.value
+            : 'Routine',
+
+        uploadFolderId:
+          tenantUploadFolderId
+      };
+
+      try {
+
+        setSubmitting(true);
+
+        const result =
+          await submitTenantRepairClient_(payload);
+
+        if (
+          !result ||
+          result.success !== true
+        ) {
+          throw new Error(
+            result && result.message
+              ? result.message
+              : 'The repair could not be submitted.'
+          );
+        }
+
+        handleSuccess();
+
+      } catch (error) {
+
+        handleFailure(error);
+      }
+    }
+
+
+    function handleSuccess() {
+
+      setSubmitting(false);
+
+      repairForm.reset();
+      uploadFileList.innerHTML = '';
+
+      uploadedTenantFiles = [];
+      tenantUploadFolderId = '';
+      repairFiles.value = '';
+
+      const routineOption =
+        document.querySelector(
+          'input[name="urgency"][value="Routine"]'
+        );
+
+      if (routineOption) {
+        routineOption.checked = true;
+      }
+
+      successOverlay.classList.add('visible');
+
+      successOverlay.setAttribute(
+        'aria-hidden',
+        'false'
+      );
+    }
+
+
+    function handleFailure(error) {
+
+      setSubmitting(false);
+
+      const message =
+        error && error.message
+          ? error.message
+          : 'The repair could not be submitted. Please try again.';
+
+      showError(message);
+    }
+
+
+    function setSubmitting(isSubmitting) {
+
+      if (submitButton) {
+        submitButton.disabled = isSubmitting;
+      }
+
+      if (loadingOverlay) {
+
+        loadingOverlay.classList.toggle(
+          'visible',
+          isSubmitting
+        );
+
+        loadingOverlay.setAttribute(
+          'aria-hidden',
+          String(!isSubmitting)
+        );
+      }
+    }
+
+
+    function showError(message) {
+
+      formError.textContent = message;
+
+      formError.classList.add('visible');
+
+      formError.scrollIntoView({
+        behavior: 'smooth',
+        block: 'center'
+      });
+    }
+
+
+    function clearError() {
+
+      formError.textContent = '';
+
+      formError.classList.remove('visible');
+    }
+
+
+    function closeSuccess() {
+
+      successOverlay.classList.remove('visible');
+
+      successOverlay.setAttribute(
+        'aria-hidden',
+        'true'
+      );
+
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+  </script>
+
+</body>
+</html>
